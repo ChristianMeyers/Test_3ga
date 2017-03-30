@@ -4,7 +4,23 @@
   <title>Psytastic</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="Links/bootstrap.css">
-  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>  
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript">
+// Wait for device API libraries to load
+//
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+// device APIs are available
+//
+function onDeviceReady() {
+    window.analytics.startTrackerWithId('UA-96442408-1');
+    window.analytics.trackView('body');
+    window.analytics.setUserId('my-user-id');
+    window.analytics.trackEvent('Category', 'Action')
+}
+</script> 
   <style>
 
   @font-face {
@@ -80,30 +96,11 @@
     </div>
   </section>
 
+
+
+
 <!--
-<script type="text/javascript">
-// Wait for device API libraries to load
-//
-function onLoad() {
-    document.addEventListener("deviceready", onDeviceReady, false);
-}
-
-// device APIs are available
-//
-function onDeviceReady() {
-    window.analytics.startTrackerWithId('UA-96442408-1');
-    window.analytics.trackView('body');
-    window.analytics.setUserId('my-user-id');
-    window.analytics.trackEvent('Category', 'Action')
-    
-}
-
-
-</script> -->
-
-
 <script>
-
 var app = {
     // Application Constructor
     initialize: function() {
@@ -140,8 +137,7 @@ var app = {
     }
 };
 
-app.initialize();
-
+app.initialize(); -->
 </script>
   
 </body>
