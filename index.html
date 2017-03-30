@@ -79,6 +79,7 @@
     </div>
   </section>
 
+<!--
 <script type="text/javascript">
 // Wait for device API libraries to load
 //
@@ -89,13 +90,56 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
-    window.analytics.startTrackerWithId('UA-96499197-1');
+    window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('body');
     window.analytics.setUserId('my-user-id');
     window.analytics.trackEvent('Category', 'Action')
     
 }
 
+
+</script> -->
+
+
+<script>
+
+var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+        //Replace UA-XXXXXX-YY with your tracking ID
+        window.analytics.startTrackerWithId('UA-96442408-1');
+        window.analytics.trackView('Home')
+        window.analytics.trackEvent('Home', 'DeviceReady', 'Hits', 1);
+    }
+};
+
+app.initialize();
 
 </script>
   
