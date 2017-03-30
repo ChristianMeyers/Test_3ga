@@ -17,6 +17,7 @@ function onLoad() {
 function onDeviceReady() {
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('body');
+    window.analytics.trackView('wirtschaft');
     window.analytics.setUserId('my-user-id');
     window.analytics.trackEvent('Category', 'Action')
 }
@@ -69,19 +70,20 @@ function onDeviceReady() {
 
 
 
-<body style="background: #f7f7ef;font-family:Fabrica" onload="onLoad()" name="body" id="body">
+<body style="background: #f7f7ef;font-family:Fabrica" onload="onLoad()" >
 
-  <section class="jumbotron" style="background-image: url(images/menu/APStartseiteG.jpg); height: 100vh; background-size: cover; position:relative;z-index:1;margin-bottom:0px">
+  <section name="body" id="body" class="jumbotron" style="background-image: url(images/menu/APStartseiteG.jpg); height: 100vh; background-size: cover; position:relative;z-index:1;margin-bottom:0px">
   <a href="random.html"><p class="absolute-text" style="font-size:2.5em">Give me facts.</p> <p class="absolute-text1" style="font-size:2.5em">Give me facts.</p></a>
   </section>
 
   
 
   <section class="container">
-    <div class="row" >
+    <div class="row" name="wirtschaft" id="wirtschaft">
 
         <a href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
-
+    </div>
+    <div class="row" >
         <a href="SubPe.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Persoenlichkeit.png" class="grow img-responsive"/></center> <p class="absolute-text3">Persönlichkeitspsychologie </p> <p class="absolute-text4">Persönlichkeitspsychologie</p> </a>
 
         <a href="SubPa.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Paeda.png" class="grow img-responsive"/></center><p class="absolute-text3">Pädagogische Psychologie </p> <p class="absolute-text4">Pädagogische Psychologie</p> </a>
@@ -96,48 +98,6 @@ function onDeviceReady() {
     </div>
   </section>
 
-
-
-
-<!--
-<script>
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-        //Replace UA-XXXXXX-YY with your tracking ID
-        window.analytics.startTrackerWithId('UA-96442408-1');
-        window.analytics.trackView('Home')
-        window.analytics.trackEvent('Home', 'DeviceReady', 'Hits', 1);
-    }
-};
-
-app.initialize(); -->
 </script>
   
 </body>
