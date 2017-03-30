@@ -16,23 +16,13 @@ function onLoad() {
 //
 function onDeviceReady() {
     window.analytics.startTrackerWithId('UA-96442408-1');
-    window.analytics.trackView('body');
+    window.analytics.trackView('random');
     window.analytics.setUserId('my-user-id');
+    window.analytics.trackEvent('Category', 'Action');
     window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
     window.analytics.debugMode();
     window.analytics.trackException('Description', true);
-    window.ga.setOptOut(true);
-    window.ga.setAllowIDFACollection(true);
-    window.ga.enableUncaughtExceptionReporting(true, success, error);
-    document.addEventListener("ranButton", onMenuKeyDown, false);
 }
-
-
-    // Handle the menu button
-    //
-    function onMenuKeyDown() {
-      window.analytics.trackEvent('inRandom', 'Click');
-    }
 </script> 
   <style>
   @font-face {
@@ -206,7 +196,7 @@ function onDeviceReady() {
 </section>
 
 <section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button" id="ranButton" name="ranButton">
+  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
   <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
   </div></a> 
 </section>
