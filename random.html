@@ -10,7 +10,6 @@
 //
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
-    document.addEventListener("ranButton", onMenuKeyDown, false);
 }
 
 // device APIs are available
@@ -25,6 +24,7 @@ function onDeviceReady() {
     window.ga.setOptOut(true);
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
+    document.addEventListener("ranButton", onMenuKeyDown, false);
 }
 
 
