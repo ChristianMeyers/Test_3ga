@@ -9,7 +9,12 @@
 // Wait for device API libraries to load
 //
 function onLoad() {
-    
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+// device APIs are available
+//
+function onDeviceReady() {
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('random');
     window.analytics.setUserId('my-user-id');
