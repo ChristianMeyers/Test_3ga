@@ -28,7 +28,8 @@ function onDeviceReady() {
 }
 
 object.onclick = function(){
-window.analytics.trackEvent('Click', 'Wirtschaft');
+  window.analytics.startTrackerWithId('UA-96442408-1');
+  window.analytics.trackEvent('Click', 'Wirtschaft');
 };
 
 
