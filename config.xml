@@ -20,10 +20,6 @@
   <plugin name="cordova-plugin-x-socialsharing" source="npm" />
   <plugin name="cordova-plugin-google-analytics" source="npm" />
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
-  <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    id="my-plugin-id"
-    version="1.0.2">
 
   <access origin="*"/>  
   
