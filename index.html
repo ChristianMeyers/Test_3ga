@@ -21,6 +21,10 @@ function onDeviceReady() {
     window.analytics.trackView('body');
     window.analytics.setUserId('my-user-id');
     window.analytics.trackEvent('Category', 'Action');
+
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("menubutton", onMenuKeyDown, false);
+
     window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
     window.analytics.debugMode();
     window.analytics.trackException('Description', true);
@@ -28,6 +32,16 @@ function onDeviceReady() {
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
+
+
+function onPause() {
+    window.analytics.trackEvent('Pause', 'Ja');
+}
+
+function onMenuKeyDown() {
+    // Handle the menubutton event
+}
+
 
 </script> 
   <style>
