@@ -12,6 +12,8 @@
 
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("menubutton", onMenuKeyDown, false);
 }
 
 // device APIs are available
@@ -21,10 +23,6 @@ function onDeviceReady() {
     window.analytics.trackView('body');
     window.analytics.setUserId('my-user-id');
     window.analytics.trackEvent('Category', 'Action');
-
-    document.addEventListener("pause", onPause, false);
-    document.addEventListener("menubutton", onMenuKeyDown, false);
-
     window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
     window.analytics.debugMode();
     window.analytics.trackException('Description', true);
