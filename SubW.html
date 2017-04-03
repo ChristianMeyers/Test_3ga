@@ -17,13 +17,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('business');
+    window.ga.setUserId('my-user-id');
     window.ga.trackEvent('business', 'Action');
-    window.ga.trackTiming('Category', 100, 'Variable', 'Label');
-    window.ga.debugMode();
-    window.ga.trackException('Description', true);
-    window.ga.setOptOut(true);
-    window.ga.setAllowIDFACollection(true);
-    window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
 
 
