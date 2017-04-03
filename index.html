@@ -16,19 +16,8 @@ function onDeviceReady() {
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
     window.ga.trackEvent('Category', 'Action');
-    window.ga.trackTiming('Category', 100, 'Variable', 'Label');
-    window.ga.debugMode();
-    window.ga.trackException('Description', true);
-    window.ga.setOptOut(true);
-    window.ga.setAllowIDFACollection(true);
-    window.ga.enableUncaughtExceptionReporting(true, success, error);
-    document.addEventListener("menubutton", onMenuKeyDown, false);
+   
 }
-
-function onMenuKeyDown() {
-    window.ga.trackView('business');
-}
-
 
 
 /* für OneSignal  */
