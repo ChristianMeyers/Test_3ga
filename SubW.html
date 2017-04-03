@@ -15,10 +15,16 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
-    window.analytics.trackView('business');
-    window.analytics.setUserId('my-user-id');
-    window.analytics.trackEvent('business', 'Action');
-    window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
+    window.ga.startTrackerWithId('UA-96442408-1');
+    window.ga.trackView('body');
+    window.ga.setUserId('my-user-id');
+    window.ga.trackEvent('Category', 'Action');
+    window.ga.trackTiming('Category', 100, 'Variable', 'Label');
+    window.ga.debugMode();
+    window.ga.trackException('Description', true);
+    window.ga.setOptOut(true);
+    window.ga.setAllowIDFACollection(true);
+    window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
 </script>
 
