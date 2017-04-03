@@ -5,7 +5,45 @@
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="Links/bootstrap.css">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript">
+
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+    window.ga.startTrackerWithId('UA-96442408-1');
+    window.ga.trackView('body');
+    window.ga.setUserId('my-user-id');
+    window.ga.trackEvent('Category', 'Action');
+    window.ga.trackTiming('Category', 100, 'Variable', 'Label');
+    window.ga.debugMode();
+    window.ga.trackException('Description', true);
+    window.ga.setOptOut(true);
+    window.ga.setAllowIDFACollection(true);
+    window.ga.enableUncaughtExceptionReporting(true, success, error);
+}
+
+
+
+/* für OneSignal  */
+
+document.addEventListener('deviceready', function () {
   
+  var notificationOpenedCallback = function(jsonData) {
+    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  };
+
+  window.plugins.OneSignal
+    .startInit("13c9ac70-58a7-4db1-b7d5-ec341a228e5b")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit();
+  
+}, false);
+
+
+
+</script> 
 
   <style>
 
