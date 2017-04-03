@@ -6,50 +6,18 @@
   <link rel="stylesheet" href="Links/bootstrap.css">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript">
-// Wait for device API libraries to load
-//
+
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 
-// device APIs are available
-//
 function onDeviceReady() {
-    window.analytics.startTrackerWithId('UA-96442408-1');
-    window.analytics.trackView('body');
-    window.analytics.setUserId('my-user-id');
-    window.analytics.trackEvent('Category', 'Action');
-    window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
-    window.analytics.debugMode();
-    window.analytics.trackException('Description', true);
-    window.ga.setOptOut(true);
-    window.ga.setAllowIDFACollection(true);
-    window.ga.enableUncaughtExceptionReporting(true, success, error);
+    window.ga.startTrackerWithId('UA-96442408-1');
+    window.ga.trackView('body');
+    window.ga.setUserId('my-user-id');
+    window.ga.trackEvent('Category', 'Action');
 }
 
-
-
-
-
-/* für OneSignal  */
-
-document.addEventListener('deviceready', function () {
-  // Enable to debug issues.
-  // window.plugins.OneSignal.setLogLevel({logLevel: 4, visualLevel: 4});
-  
-  var notificationOpenedCallback = function(jsonData) {
-    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-  };
-
-  window.plugins.OneSignal
-    .startInit("13c9ac70-58a7-4db1-b7d5-ec341a228e5b")
-    .handleNotificationOpened(notificationOpenedCallback)
-    .endInit();
-  
-  // Call syncHashedEmail anywhere in your app if you have the user's email.
-  // This improves the effectiveness of OneSignal's "best-time" notification scheduling feature.
-  // window.plugins.OneSignal.syncHashedEmail(userEmail);
-}, false);
 
 
 
@@ -113,7 +81,7 @@ document.addEventListener('deviceready', function () {
   <section class="container">
     <div class="row">
 
-        <a href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px" onclick="TrackButtonClicked();"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
+        <a href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
     </div>
     <div class="row" >
         <a href="SubPe.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Persoenlichkeit.png" class="grow img-responsive"/></center> <p class="absolute-text3">Persönlichkeitspsychologie </p> <p class="absolute-text4">Persönlichkeitspsychologie</p> </a>
