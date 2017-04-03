@@ -27,6 +27,22 @@ function onDeviceReady() {
 
 
 
+/* für OneSignal  */
+
+document.addEventListener('deviceready', function () {
+  
+  var notificationOpenedCallback = function(jsonData) {
+    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+  };
+
+  window.plugins.OneSignal
+    .startInit("13c9ac70-58a7-4db1-b7d5-ec341a228e5b")
+    .handleNotificationOpened(notificationOpenedCallback)
+    .endInit();
+  
+}, false);
+
+
 
 </script> 
 
