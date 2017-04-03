@@ -14,6 +14,7 @@ function onLoad() {
 
 // device APIs are available
 //
+/*
 function onDeviceReady() {
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('body');
@@ -26,9 +27,14 @@ function onDeviceReady() {
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
-
-
-
+*/
+function onDeviceReady() {
+  window.ga.startTrackerWithId('UA-96442408-1', 30, function(msg) {
+    console.log('Tracker start success', msg)
+    window.ga.debugMode()
+    window.ga.trackView('body');
+});
+}
 
 
 /* für OneSignal  */
