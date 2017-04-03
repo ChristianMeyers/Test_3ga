@@ -6,13 +6,10 @@
   <link rel="stylesheet" href="Links/bootstrap.css">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript">
-// Wait for device API libraries to load
-//
+
+function onLoad() {
 document.addEventListener("deviceready", onDeviceReady, false);
 }
-
-// device APIs are available
-//
 
 function onDeviceReady() {
     window.ga.startTrackerWithId('UA-96442408-1');
