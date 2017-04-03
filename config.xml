@@ -18,7 +18,7 @@
   </author>
 
   <plugin name="cordova-plugin-x-socialsharing" source="npm" />
-  <plugin name="cordova-plugin-google-analytics" source="npm" />
+  <plugin name="cordova-plugin-google-analytics" spec="0.8.1" source="npm" />  
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
   <plugin name="onesignal-cordova-plugin" source="npm"/>
 
