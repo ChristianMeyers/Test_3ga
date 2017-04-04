@@ -25,14 +25,16 @@ function onDeviceReady() {
     window.ga.setOptOut(true);
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
-    window.FirebasePlugin.setScreenName("Home");
-    window.FirebasePlugin.logEvent("select_content", {content_type: "page_view", item_id: "home"});
-    window.FirebasePlugin.setUserId("user_id");
+
 
 }
 
 
-
+/* 
+window.FirebasePlugin.setScreenName("Home");
+    window.FirebasePlugin.logEvent("select_content", {content_type: "page_view", item_id: "home"});
+    window.FirebasePlugin.setUserId("user_id");
+ */
 
 </script>
 
