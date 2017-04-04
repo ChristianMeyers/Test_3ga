@@ -29,12 +29,10 @@
     <preference name="orientation" value="portrait" />
   </platform>
 
-  <platform name="android" >
+   <icon src="images/menu/1Paeda.png" />
+
+  <platform name="android">
     <preference name="orientation" value="portrait" />
-    <icon src="images/paeda.jpg" density="ldpi" />
-    <icon src="images/paeda.jpg" density="mdpi" />
-    <icon src="images/paeda.jpg" density="hdpi" />
-    <icon src="images/paeda.jpg" density="xhdpi" />
   </platform>
 
 
