@@ -4,6 +4,20 @@
   <title>Psytastic</title>
   <meta charset="utf-8"/>
   <link rel="stylesheet" href="Links/bootstrap.css">
+  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBFwqlJ-pvZAbSjdUViQdD0DbLDL7PuoUo",
+    authDomain: "analyticsfirebase-59c54.firebaseapp.com",
+    databaseURL: "https://analyticsfirebase-59c54.firebaseio.com",
+    projectId: "analyticsfirebase-59c54",
+    storageBucket: "analyticsfirebase-59c54.appspot.com",
+    messagingSenderId: "322963174622"
+  };
+  firebase.initializeApp(config);
+  </script>
+  
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript">
 
@@ -120,7 +134,7 @@ document.addEventListener('deviceready', function () {
     </div>
   </section>
 
-</script>
-  
+
+
 </body>
 </html>
