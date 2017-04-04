@@ -6,83 +6,185 @@
   <link rel="stylesheet" href="Links/bootstrap.css">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript">
-
+// Wait for device API libraries to load
+//
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 
+// device APIs are available
+//
 function onDeviceReady() {
-    window.ga.startTrackerWithId('UA-96442408-1');
-    window.ga.trackView('body');
-    window.ga.setUserId('my-user-id');
-    window.ga.trackEvent('Category', 'Action');
-    window.ga.trackTiming('Category', 100, 'Variable', 'Label');
-    window.ga.debugMode();
-    window.ga.trackException('Description', true);
+    window.analytics.startTrackerWithId('UA-96442408-1');
+    window.analytics.trackView('business');
+    window.analytics.setUserId('my-user-id');
+    window.analytics.trackEvent('business', 'Action');
+    window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
+    window.analytics.debugMode();
+    window.analytics.trackException('Description', true);
     window.ga.setOptOut(true);
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
+    window.FirebasePlugin.setScreenName("Home");
+    window.FirebasePlugin.logEvent("select_content", {content_type: "page_view", item_id: "home"});
+    window.FirebasePlugin.setUserId("user_id");
+
 }
 
 
 
-/* für OneSignal  */
 
-document.addEventListener('deviceready', function () {
-  
-  var notificationOpenedCallback = function(jsonData) {
-    console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
-  };
-
-  window.plugins.OneSignal
-    .startInit("13c9ac70-58a7-4db1-b7d5-ec341a228e5b")
-    .handleNotificationOpened(notificationOpenedCallback)
-    .endInit();
-  
-}, false);
-
-
-
-</script> 
+</script>
 
   <style>
-
   @font-face {
     font-family: Fabrica;
     src: url('Links/Fabrica.otf');
     }
+ 
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      .prev,
+.next {
+  -moz-transition: -moz-transform, 100ms;
+  -o-transition: -o-transform, 100ms;
+  -webkit-transition: -webkit-transform, 100ms;
+  transition: transform, 100ms;
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 9vh;
+  height: 9vh;
+  margin-top:0.5vh;
+  margin-left:0.9vw;
+  transform: translatez(0);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;                           
+  background-color: transparent;
 
-
-.grow:hover {
-  opacity: 0.5;
--webkit-animation: flash 1.5s;
-  animation: flash 1.5s;
 }
-@-webkit-keyframes flash {
-  0% {
-    opacity: .4;
-  }
-  100% {
-    opacity: 1;
-  }
+
+
+.prev:after,
+.next:after {
+  -moz-transition: -moz-transform, 100ms;
+  -o-transition: -o-transform, 100ms;
+  -webkit-transition: -webkit-transform, 100ms;
+  transition: transform, 100ms;
+  position: absolute;
+  box-sizing: border-box;
+  border-top: 2px solid rgba(255, 255, 255, 0.75);
+  border-left: 2px solid rgba(255, 255, 255, 0.75);
+  content: "";
+  width: 2em;
+  height: 2em;
+  top: 50%;
+  margin-top: -1em;
 }
-@keyframes flash {
-  0% {
-    opacity: .4;
-  }
-  100% {
-    opacity: 1;
-  }
+
+.prev {
+  left: 0;
+}
+.prev:after {
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  border-top: 2px solid rgba(255, 255, 255, 0.75);
+  border-left: 2px solid rgba(255, 255, 255, 0.75);
+  left: 56%;
+  margin-left: -1em;
 }
 
 
-/* CSS Für Text auf Bild */
-.absolute-text{position:absolute; bottom:28vh;color: white; font-family:"Fabrica"; padding-left: 1vh; padding-right:1vh; padding-top:0.6vh; margin-left:8vw; background-color: #474747; opacity:0.65; z-index: 1; border-radius: 3px}
-.absolute-text1{position:absolute; bottom:28vh; color: white; font-family:"Fabrica"; padding-left: 1vh; padding-right:1vh; padding-top:0.6vh;margin-left:8vw; margin-bottom:10vh; opacity:1; z-index: 1; border-radius: 3px}
-.absolute-text3{position:absolute; bottom:0; font-size:4vh;color: white; font-family:"Fabrica"; padding-left: 1vh; padding-right:1vh; padding-top:0.6vh;margin-left:2vh; margin-bottom:10vh; background-color: #474747; opacity:0.65; z-index: 1; border-radius: 3px}
-.absolute-text4{position:absolute; bottom:0; font-size:4vh;color: white; font-family:"Fabrica"; padding-left: 1vh; padding-right:1vh; padding-top:0.6vh;margin-left:2vh; margin-bottom:10vh; opacity:1; z-index: 1; border-radius: 3px}
+.prev:hover,
+.next:hover {
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.prev:hover:after,
+.next:hover:after {
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+}
 
-</style>
+.prev:hover:after {
+  -moz-transform: rotate(-45deg) scale(1.05);
+  -ms-transform: rotate(-45deg) scale(1.05);
+  -webkit-transform: rotate(-45deg) scale(1.05);
+  transform: rotate(-45deg) scale(1.05);
+}
+
+
+.prev:active,
+.next:active {
+  -moz-transition: -moz-transform, 50ms;
+  -o-transition: -o-transform, 50ms;
+  -webkit-transition: -webkit-transform, 50ms;
+  transition: transform, 50ms;
+  -moz-transform: scale(1.025);
+  -ms-transform: scale(1.025);
+  -webkit-transform: scale(1.025);
+  transform: scale(1.025);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.prev:active:after,
+.next:active:after {
+  border-top: 2px solid rgba(0, 0, 0, 0.65);
+  border-left: 2px solid rgba(0, 0, 0, 0.65);
+}
+
+.prev:active:after {
+  -moz-transform: rotate(-45deg) scale(1.025);
+  -ms-transform: rotate(-45deg) scale(1.025);
+  -webkit-transform: rotate(-45deg) scale(1.025);
+  transform: rotate(-45deg) scale(1.025);
+}
+
+
+/* ab hier button */
+.button {
+  background: #87cdbc;
+  width: 180px;
+  padding: 4px 0;
+  margin-left: 50%;
+  margin-top:-1vh;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  border-radius: 3px;
+  text-decoration: none;
+}
+.button p {
+  font-family: 'Fabrica';
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  border-radius: 50%;
+  background-color: #927608;
+  opacity: 0.4;
+  bottom: -30px;
+}
+
+
 
 </style>
 </head>
@@ -92,35 +194,45 @@ document.addEventListener('deviceready', function () {
 
 
 
-<body style="background: #f7f7ef;font-family:Fabrica" onload="onLoad()" name="body" id="body" >
 
-  <section class="jumbotron" style="background-image: url(images/menu/APStartseiteG.jpg); height: 100vh; background-size: cover; position:relative;z-index:1;margin-bottom:0px">
-  <a href="random.html"><p class="absolute-text" style="font-size:2.5em">Give me facts.</p> <p class="absolute-text1" style="font-size:2.5em">Give me facts.</p></a>
-  </section>
 
-  
+<body style="background: #f7f7ef; font-family:Fabrica" onload="onLoad()" name="business" id="business">
+<section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
+  <a href="index.html" class="prev">Prev</a>
+  <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
+  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Wirtschaftspsychologie • </p>
+</section>
 
-  <section class="container">
-    <div class="row">
+<section  style="margin-top:7vh; margin-bottom:10vh">
+  <center><div class="el" style="left:0px" >  </div></center>
+</section>
 
-        <a href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
-    </div>
-    <div class="row" >
-        <a href="SubPe.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Persoenlichkeit.png" class="grow img-responsive"/></center> <p class="absolute-text3">Persönlichkeitspsychologie </p> <p class="absolute-text4">Persönlichkeitspsychologie</p> </a>
+<section class="container">
+  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+  </div></a> 
+</section>
 
-        <a href="SubPa.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Paeda.png" class="grow img-responsive"/></center><p class="absolute-text3">Pädagogische Psychologie </p> <p class="absolute-text4">Pädagogische Psychologie</p> </a>
 
-        <a href="SubB.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Biologische.png" class="grow img-responsive"/></center><p class="absolute-text3">Biologische Psychologie</p> <p class="absolute-text4">Biologische Psychologie</p> </a>
-
-        <a href="SubS.html" class="col-md-12 col-sm-12 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1ASozial.png" class="grow img-responsive"/></center><p class="absolute-text3">Sozialpsychologie </p> <p class="absolute-text4">Sozialpsychologie</p> </a>
-
-        <a href="SubK.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Klinische.png" class="grow img-responsive"/></center> <p class="absolute-text3">Klinische Psychologie </p> <p class="absolute-text4">Klinische Psychologie</p> </a>
-
-        <a href="SubE.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Entwicklung.png" class="grow img-responsive"/></center> <p class="absolute-text3">Entwicklungspsychologie </p> <p class="absolute-text4">Entwicklungspsychologie</p> </a>
-    </div>
-  </section>
-
+<script src='Links/button.js'></script>
+<script>
+    var $button = document.querySelector('.button');
+$button.addEventListener('click', function() {
+  var duration = 0.3,
+      delay = 0.08;
+  TweenMax.to($button, duration, {scaleY: 1.6, ease: Expo.easeOut});
+  TweenMax.to($button, duration, {scaleX: 1.2, scaleY: 1, ease: Back.easeOut, easeParams: [3], delay: delay});
+  TweenMax.to($button, duration * 1.25, {scaleX: 1, scaleY: 1, ease: Back.easeOut, easeParams: [6], delay: delay * 3 });
+});
+    
 </script>
-  
+<script src='Links/x.js'></script>
+<script type="text/javascript">
+    var path = 'images/subpages/wirtschaft/',
+    imgs = ['Paeda.jpg','Paeda2.jpg'],
+    i = Math.floor(Math.random()*imgs.length);
+  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
+  </script>
+
 </body>
 </html>
