@@ -21,8 +21,6 @@
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
   <plugin name="onesignal-cordova-plugin" source="npm"/>
   <plugin name="cordova-plugin-firebase" spec="0.1.20" source="npm"/>
-  <plugin name="cordova-plugin-play-games-services" source="npm"/>
-
 
   <access origin="*"/>  
   
