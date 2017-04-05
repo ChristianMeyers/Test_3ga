@@ -17,11 +17,11 @@
       Chris 
   </author>
 
-  
+  <plugin name="cordova-plugin-google-analytics" source="npm" /> <!-- evtl: version="1.7.5" -->
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
   <plugin name="onesignal-cordova-plugin" source="npm"/>
   <plugin name="cordova-plugin-firebase" spec="0.1.20" source="npm"/>
-  <plugin name="cordova-plugin-googleplayservices" source="npm"/>
+  <plugin name="cordova-plugin-play-games-services" source="npm"/>
 
 
   <access origin="*"/>  
