@@ -26,7 +26,8 @@ function onDeviceReady() {
 }
 
 function onPause() {
-    window.ga.trackEvent('bildschirm', 'pause');
+  window.ga.setUserId('my-user-id');
+  window.ga.trackEvent('bildschirm', 'pause');
 }
 
 
