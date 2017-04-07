@@ -12,6 +12,8 @@ function onLoad() {
 }
 
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
@@ -22,8 +24,7 @@ function onDeviceReady() {
     window.ga.setOptOut(true);
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
-    document.addEventListener("pause", onPause, false);
-    document.addEventListener("resume", onResume, false);
+    
 }
 
 function onPause() {
