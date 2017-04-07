@@ -26,7 +26,8 @@ function onPause() {
   alert('paused');
 }
 function onResume() {
-    alert('resumed');
+  window.ga.trackEvent('bildschirm', 'resume');
+  alert('resumed');
 }
 
 /* für OneSignal  */
