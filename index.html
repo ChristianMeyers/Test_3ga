@@ -15,18 +15,19 @@ function onDeviceReady() {
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
-    window.ga.trackEvent('Category', 'Action');
+    window.ga.trackEvent('bildschirm', 'start');
     window.ga.trackTiming('Category', 100, 'Variable', 'Label');
     window.ga.debugMode();
     window.ga.trackException('Description', true);
     window.ga.setOptOut(true);
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
-    window.FirebasePlugin.setScreenName("Home");
-    window.FirebasePlugin.logEvent("select_content", {content_type: "page_view", item_id: "home"});
-    window.FirebasePlugin.setUserId("user_id");
+    document.addEventListener("pause", onPause, false);
 }
 
+function onPause() {
+    window.ga.trackEvent('bildschirm', 'pause');
+}
 
 
 /* für OneSignal  */
@@ -115,11 +116,13 @@ document.addEventListener('deviceready', function () {
 
         <a href="SubB.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Biologische.png" class="grow img-responsive"/></center><p class="absolute-text3">Biologische Psychologie</p> <p class="absolute-text4">Biologische Psychologie</p> </a>
 
-        <a href="SubS.html" class="col-md-12 col-sm-12 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1ASozial.png" class="grow img-responsive"/></center><p class="absolute-text3">Sozialpsychologie </p> <p class="absolute-text4">Sozialpsychologie</p> </a>
-
         <a href="SubK.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Klinische.png" class="grow img-responsive"/></center> <p class="absolute-text3">Klinische Psychologie </p> <p class="absolute-text4">Klinische Psychologie</p> </a>
 
+        <a href="SubS.html" class="col-md-12 col-sm-12 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1ASozial.png" class="grow img-responsive"/></center><p class="absolute-text3">Sozialpsychologie </p> <p class="absolute-text4">Sozialpsychologie</p> </a>
+
         <a href="SubE.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Entwicklung.png" class="grow img-responsive"/></center> <p class="absolute-text3">Entwicklungspsychologie </p> <p class="absolute-text4">Entwicklungspsychologie</p> </a>
+
+        <a href="about.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Entwicklung.png" class="grow img-responsive"/></center> <p class="absolute-text3">Über diese App </p> <p class="absolute-text4">Über diese App</p> </a>
     </div>
   </section>
 
