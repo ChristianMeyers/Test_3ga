@@ -30,7 +30,8 @@ function onResume() {
 }
 
 function cliBusiness() {
-    alert('paused');
+  window.ga.trackEvent('click', 'business');
+  alert('paused');
 }
 
 /* für OneSignal  */
