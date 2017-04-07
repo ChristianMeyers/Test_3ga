@@ -14,6 +14,8 @@ function onLoad() {
 function onDeviceReady() {
     document.addEventListener("pause", onPause, false);
     document.addEventListener("resume", onResume, false);
+    document.getElementById("business").addEventListener("click", cliBusiness);
+
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
@@ -26,6 +28,9 @@ function onPause() {
 }
 function onResume() {
   window.ga.trackEvent('bildschirm', 'resume');
+}
+function cliBusiness() {
+  document.getElementById("business").alert('paused');
 }
 
 /* für OneSignal  */
@@ -105,7 +110,7 @@ document.addEventListener('deviceready', function () {
   <section class="container">
     <div class="row">
 
-        <a href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
+        <a id="business" href="SubW.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Business.png" class="grow img-responsive"/></center><p class="absolute-text3">Wirtschaftspsychologie </p> <p class="absolute-text4">Wirtschaftspsychologie</p> </a>
     
         <a href="SubPe.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Persoenlichkeit.png" class="grow img-responsive"/></center> <p class="absolute-text3">Persönlichkeitspsychologie </p> <p class="absolute-text4">Persönlichkeitspsychologie</p> </a>
 
