@@ -22,8 +22,6 @@ function onDeviceReady() {
 }
 
 function onPause() {
-  window.ga.startTrackerWithId('UA-96442408-1');
-  window.ga.setUserId('my-user-id');
   window.ga.trackEvent('bildschirm', 'pause');
   alert('paused');
 }
