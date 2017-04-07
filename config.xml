@@ -27,13 +27,11 @@
   <platform name="ios" >
     <preference name="orientation" value="portrait" />
   </platform>
-
-   <icon src="images/menu/1Paeda.png" />
-
   <platform name="android">
     <preference name="orientation" value="portrait" />
   </platform>
+<preference name="KeepRunning" value="true"/>
 
-
+ <icon src="images/menu/1Paeda.png" />
 
 </widget>
