@@ -15,10 +15,11 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.getElementById("btnBusiness").addEventListener("click", cliBusiness);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('business');
     window.analytics.setUserId('my-user-id');
-    window.analytics.trackEvent('business', 'Action');
+    window.analytics.trackEvent('bildschirm', 'business');
     window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
     window.analytics.debugMode();
     window.analytics.trackException('Description', true);
@@ -26,6 +27,11 @@ function onDeviceReady() {
     window.ga.setAllowIDFACollection(true);
     window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
+
+function cliBusiness() {
+    window.analytics.trackEvent('click', 'btnBusiness');
+}
+
 </script>
 
   <style>
@@ -200,7 +206,7 @@ function onDeviceReady() {
 </section>
 
 <section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
+  <a id="btnBusiness" onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
   <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
   </div></a> 
 </section>
