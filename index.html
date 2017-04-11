@@ -24,15 +24,13 @@ function onDeviceReady() {
 
 function onPause() {
   window.ga.trackEvent('bildschirm', 'pause');
-  alert('pause');
 }
 function onResume() {
   window.ga.trackEvent('bildschirm', 'resume');
-  alert('resumed');
 }
 
 function cliBusiness() {
-  document.getElementById("business");
+  document.getElementById("business").alert('paused');
 }
 
 
