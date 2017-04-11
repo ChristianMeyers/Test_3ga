@@ -10,7 +10,7 @@
   <name>Psytastic</name>
 
   <description>
-      Verblüffende Psychologie direkt aus der Uni.
+      Verblüffende Psychologie direkt aus der Uni von Student Chris.
   </description>
 
   <author href="https://psytastic.de" email="chris@psytastic.de">
@@ -39,9 +39,6 @@
 
   </platform>
 
-
   <preference name="KeepRunning" value="true"/>
-
-  
 
 </widget>
