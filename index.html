@@ -12,21 +12,12 @@ function onLoad() {
 }
 
 function onDeviceReady() {
-    document.addEventListener("pause", onPause, false);
-    document.addEventListener("resume", onResume, false);
+   
     window.ga.startTrackerWithId('UA-96442408-1');
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
     window.ga.trackEvent('bildschirm', 'start');
     window.ga.trackTiming('Category', 100, 'Variable', 'Label');  
-}
-
-function onPause() {
-  window.ga.trackEvent('bildschirm', 'pause');
-}
-function onResume() {
-  window.ga.trackEvent('bildschirm', 'resume');
-  alert('resumed');
 }
 
 
