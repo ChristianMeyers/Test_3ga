@@ -30,8 +30,15 @@
   <platform name="android">
     <preference name="orientation" value="portrait" />
   </platform>
-<preference name="KeepRunning" value="true"/>
 
- <icon src="images/menu/1Paeda.png" />
+
+  <preference name="KeepRunning" value="true"/>
+
+  <icon src="images/icon/72.png" density="ldpi" />
+  <icon src="images/icon/96.png" density="mdpi" />
+  <icon src="images/icon/144.png" density="hdpi" />
+  <icon src="images/icon/192.png" density="xhdpi" />
+  <icon src="images/icon/512.png" density="xxhdpi" />
+  <icon src="images/icon/1024.png" density="xxxhdpi" />
 
 </widget>
