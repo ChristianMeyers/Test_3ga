@@ -12,7 +12,7 @@ Hiermit klappts:
 <plugin name="onesignal-cordova-plugin" spec="2.0.11" />
 -->
 
-  <name>Psytastic</name>
+  <name>Psytastic - Crazy Psychologie</name>
   <description>
       Verblüffende Psychologie von Student Chris direkt aus der Uni.
   </description>
@@ -37,7 +37,7 @@ Hiermit klappts:
   <icon src="images/icon/512.png" density="xxhdpi" />
   <icon src="images/icon/1024.png" density="xxxhdpi" />
   </platform>
-  <splash src="images/icon/splash.png" platform="android"/>
+  <splash src="images/icon/splash.png" platform="android" qualifier="hdpi"/>
 
   <preference name="KeepRunning" value="true"/>
   
