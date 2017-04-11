@@ -39,8 +39,8 @@ Hiermit klappts:
   <icon src="images/icon/192.png" density="xhdpi" />
   <icon src="images/icon/512.png" density="xxhdpi" />
   <icon src="images/icon/1024.png" density="xxxhdpi" />
-  <splash src="images/icon/splash.png"/>
-  <preference name="SplashMaintainAspectRatio" value="false" />
+  <splash src="images/icon/splash1.png"/>
+  <preference name="SplashMaintainAspectRatio" value="true" />
   <preference name="SplashScreenDelay" value="2500" />
   </platform>
   
