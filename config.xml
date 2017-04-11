@@ -7,18 +7,15 @@
 
 <!-- 
 Hiermit klappts: 
-<plugin name="cordova-plugin-firebase" spec="0.1.20" />
 <plugin name="cordova-plugin-google-analytics" spec="1.7.11" />
 <plugin name="cordova-plugin-whitelist" spec="1.3.2" />
 <plugin name="onesignal-cordova-plugin" spec="2.0.11" />
 -->
 
   <name>Psytastic</name>
-
   <description>
       Verblüffende Psychologie von Student Chris direkt aus der Uni.
   </description>
-
   <author href="https://psytastic.de" email="chris@psytastic.de">
       Chris 
   </author>
@@ -26,7 +23,6 @@ Hiermit klappts:
   <plugin name="cordova-plugin-google-analytics" source="npm" /> <!-- evtl: version="1.7.5" -->
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
   <plugin name="onesignal-cordova-plugin" source="npm"/>
-
   <access origin="*"/>  
   
   <platform name="ios" >
@@ -34,16 +30,16 @@ Hiermit klappts:
   </platform>
   <platform name="android">
     <preference name="orientation" value="portrait" />
-
   <icon src="images/icon/72.png" density="ldpi" />
   <icon src="images/icon/96.png" density="mdpi" />
   <icon src="images/icon/144.png" density="hdpi" />
   <icon src="images/icon/192.png" density="xhdpi" />
   <icon src="images/icon/512.png" density="xxhdpi" />
   <icon src="images/icon/1024.png" density="xxxhdpi" />
-
   </platform>
+  <splash src="images/icon/splash.png" platform="android"/>
 
   <preference name="KeepRunning" value="true"/>
+  
 
 </widget>
