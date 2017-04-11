@@ -30,6 +30,7 @@ Hiermit klappts:
   </platform>
   <platform name="android">
     <preference name="orientation" value="portrait" />
+    <preference name="SplashScreen" value="splash" />
   <icon src="images/icon/72.png" density="ldpi" />
   <icon src="images/icon/96.png" density="mdpi" />
   <icon src="images/icon/144.png" density="hdpi" />
