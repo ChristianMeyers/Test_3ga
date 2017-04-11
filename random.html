@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="Links/bootstrap.css">
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript">
-// Wait for device API libraries to load
-//
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
 }
@@ -17,12 +15,9 @@ function onLoad() {
 function onDeviceReady() {
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('random');
-    window.analytics.setUserId('my-user-id');
-    window.analytics.trackEvent('Category', 'Action');
-    window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
-    window.analytics.debugMode();
-    window.analytics.trackException('Description', true);
+    window.analytics.trackEvent('click', 'random');
 }
+
 </script> 
   <style>
   @font-face {
@@ -184,7 +179,7 @@ function onDeviceReady() {
 
 
 
-<body style="background: #f7f7ef; font-family:Fabrica" onload="onLoad()" name="random" id="random" >
+<body style="background: #f7f7ef; font-family:Fabrica" onload="onLoad()" id="random" >
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
