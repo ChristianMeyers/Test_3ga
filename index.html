@@ -9,13 +9,13 @@
 
 function onLoad() {
     document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
 }
 
 function onDeviceReady() {
     document.getElementById("business").addEventListener("click", cliBusiness);
     window.ga.startTrackerWithId('UA-96442408-1');
-    document.addEventListener("pause", onPause, false);
-    document.addEventListener("resume", onResume, false);
     window.ga.trackView('body');
     window.ga.setUserId('my-user-id');
     window.ga.trackEvent('bildschirm', 'start');
@@ -23,10 +23,12 @@ function onDeviceReady() {
 }
 
 function onPause() {
+  window.ga.startTrackerWithId('UA-96442408-1');
   window.ga.trackEvent('bildschirm', 'pause');
   alert('pause');
 }
 function onResume() {
+  window.ga.startTrackerWithId('UA-96442408-1');
   window.ga.trackEvent('bildschirm', 'resume');
   alert('resumed');
 }
