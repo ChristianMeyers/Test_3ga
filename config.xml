@@ -39,7 +39,7 @@ Hiermit klappts:
   <icon src="images/icon/192.png" density="xhdpi" />
   <icon src="images/icon/512.png" density="xxhdpi" />
   <icon src="images/icon/1024.png" density="xxxhdpi" />
-  <splash src="images/icon/splash.png"/>
+  <splash src="images/icon/splash.png" density="port-mdpi"/>
   </platform>
   
 
