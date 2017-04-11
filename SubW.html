@@ -17,13 +17,9 @@ function onLoad() {
 function onDeviceReady() {
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('business');
+    window.analytics.setUserId('my-user-id');
     window.analytics.trackEvent('bildschirm', 'business');
     window.analytics.trackTiming('Category', 100, 'Variable', 'Label');
-    window.analytics.debugMode();
-    window.analytics.trackException('Description', true);
-    window.ga.setOptOut(true);
-    window.ga.setAllowIDFACollection(true);
-    window.ga.enableUncaughtExceptionReporting(true, success, error);
 }
 
 
