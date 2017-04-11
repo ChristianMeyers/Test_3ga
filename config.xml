@@ -41,7 +41,7 @@ Hiermit klappts:
   <icon src="images/icon/1024.png" density="xxxhdpi" />
   <splash src="images/icon/splash1.png"/>
   <preference name="SplashMaintainAspectRatio" value="true" />
-  <preference name="SplashScreenDelay" value="500" />
+  <preference name="SplashScreenDelay" value="3000" />
   </platform>
   
 
