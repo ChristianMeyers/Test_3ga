@@ -23,6 +23,8 @@ Hiermit klappts:
   <plugin name="cordova-plugin-google-analytics" source="npm" /> <!-- evtl: version="1.7.5" -->
   <plugin name="cordova-plugin-whitelist" source="npm" version="1" />
   <plugin name="onesignal-cordova-plugin" source="npm"/>
+  <plugin name="cordova-plugin-splashscreen" source="npm"/>
+ 
   <access origin="*"/>  
   
   <platform name="ios" >
