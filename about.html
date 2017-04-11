@@ -119,45 +119,124 @@
 }
 
 
-/* ab hier button */
-.button {
+/* AB hier dropdown menu */
+
+
+.float-right {
+  float: right;
+}
+
+.fa {
+  font-size: .8em;
+  line-height: 22px !important;
+}
+
+dropdown {
+  display: inline-block;
+  margin: 20px 50px;
+}
+
+dropdown label, dropdown ul li {
+  display: block;
+  width: 200px;
   background: #87cdbc;
-  width: 180px;
-  padding: 4px 0;
-  margin-left: 50%;
-  margin-top:-1vh;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  border-radius: 3px;
-  text-decoration: none;
+  padding: 15px 20px;
+  box-shadow: 0px 5px 14px #888888;
 }
-.button p {
-  font-family: 'Fabrica';
-  text-align: center;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-.button:hover {
+
+dropdown label:hover, dropdown ul li:hover {
+  background: #DA6A78;
+  color: white;
   cursor: pointer;
 }
-.button:after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 10%;
-  border-radius: 50%;
-  background-color: #927608;
-  opacity: 0.4;
-  bottom: -30px;
+
+dropdown label {
+  color: #474747;
+  border-left: 0px solid #87cdbc;
+  border-radius: 0 5px 0 0;
+  position: relative;
+  z-index: 2;
 }
 
+dropdown input {
+  display: none;
+}
 
+dropdown input ~ ul {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  top: -20px;
+  z-index: 1;
+}
 
+dropdown input:checked + label {
+  background: #87cdbc;
+  color: white;
+}
 
+dropdown input:checked ~ ul {
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+}
+
+dropdown ul li:nth-child(1) {
+  border-left: 4px solid #E74C3C;
+}
+dropdown ul li:nth-child(1) .fa {
+  color: #E74C3C;
+}
+dropdown ul li:nth-child(1):hover {
+  background: #E74C3C;
+  color: white;
+}
+dropdown ul li:nth-child(1):hover .fa {
+  color: white;
+}
+
+dropdown ul li:nth-child(2) {
+  border-left: 4px solid #0072B5;
+}
+dropdown ul li:nth-child(2) .fa {
+  color: #0072B5;
+}
+dropdown ul li:nth-child(2):hover {
+  background: #0072B5;
+  color: white;
+}
+dropdown ul li:nth-child(2):hover .fa {
+  color: white;
+}
+
+dropdown ul li:nth-child(3) {
+  border-left: 4px solid #2C3E50;
+}
+dropdown ul li:nth-child(3) .fa {
+  color: #2C3E50;
+}
+dropdown ul li:nth-child(3):hover {
+  background: #2C3E50;
+  color: white;
+}
+dropdown ul li:nth-child(3):hover .fa {
+  color: white;
+}
+
+.animate {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Chrome and Safari */
+  -moz-backface-visibility: hidden;
+  /* Firefox */
+  -ms-backface-visibility: hidden;
+  /* Internet Explorer */
+}
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -167,14 +246,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MKXD5C4');</script>
 <!-- End Google Tag Manager -->
 </head>
-
-
-
-
-
-
-
-
 <body style="background: #f7f7ef; font-family:Fabrica">
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKXD5C4"
@@ -188,22 +259,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Über diese App • </p>
 </section>
 
-<!--
-<p class="text-center" style="margin-top:30vh; font-size:14px"> <span style="color:#DA6A78;font-size:16px">Entschuldige, aber bis jetzt ist die App für iOS Geräte noch nicht verfügbar.</span> <br> <br> Wenn Du möchtest, schreibe mir eine kurze E-mail und ich melde mich, wenn es so weit ist: chris@psytastic.de
-  <br> Sorry!<p> -->
 
-<br>
+<br><br>
 <p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left"> <span style="color:#DA6A78">Hi! Freut mich</span>, dass Du Dich für die Hintergründe dieser App interessierst. Hier findest Du eine kurze Entstehungsgeschichte, ein paar allgemeine Anmerkungen zur App und Kontaktinformationen.
+<br><br>
+<center><dropdown>
+  <input id="toggle1" type="checkbox">
+  <label for="toggle1" class="animate" style="font-size:17px"><a id="story" href="#story1" style="color:#f7f9ef; text-decoration:none">Die Story dahinter</a><i ></i></label>
+  <input id="toggle2" type="checkbox" >
+  <label for="toggle2" class="animate" style="font-size:17px"><a id="hinweise" href="#hinweise1" style="color:#f7f9ef; text-decoration:none">Anmerkungen und <span style="color:transparent">jajaja</span>Hinweise<span style="color:transparent">jajaja</span></a><i ></i></label>
+  <input id="toggle3" type="checkbox">
+  <label for="toggle3" class="animate" style="font-size:17px"><a id="kontakt" href="#kontakt1" style="color:#f7f9ef; text-decoration:none"><span style="color:transparent">jajaja</span>Kontakt<span style="color:transparent">jajaja</span></a><i></i></label>
+</dropdown></center>
 
-<section id="entstehung">
-<blockquote style="margin-left:5vh; margin-right: 5vh; margin-top: 5vh;border-left: 5px solid #87cdbc;border-right: 5px solid #87cdbc;box-shadow: 0px 5px 5px #888888;">Entstehung </blockquote>
 
+Ich hab Zeit für eine 2-Min Story. 
 
+Ich hab Zeit für eine 4 Min Story.
+
+<section id="story1" style="margin-top:30vh">
+<blockquote style="margin-left:5vh; margin-right: 5vh; margin-top: 5vh;border-left: 5px solid #87cdbc;border-right: 5px solid #87cdbc;box-shadow: 0px 5px 5px #888888;">Die Story dahinter </blockquote>
 <p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left">
 Der "Sammler" der seltsamen Inhalte dieser App bin ich, Chris, inzwischen Master-Student der Psychologie an der Uni Münster. 
 <br>
 <br>
-<span style="color:#DA6A78">Es war das Ende des Jahres 2016</span>, der Master hatte gerade begonnen, als mein Vater mich, während einer längeren Autofahrt, zu etwa Folgendem aufforderte: "Erzähl doch mal etwas, das du im Bachelor gelernt hast."
+<span style="color:#DA6A78">Es war das Ende des Jahres 2016</span>, der Master hatte gerade begonnen, als mein Vater, während einer längeren Autofahrt, etwa folgendermaßen ein Gespräch beginnen wollte: "Erzähl doch mal etwas, das du im Bachelor gelernt hast."
 <br>
 <br>
 ...
@@ -212,35 +292,35 @@ Der "Sammler" der seltsamen Inhalte dieser App bin ich, Chris, inzwischen Master
 Japs. Genau. Erstmal lange Stille. Ich glaube das Gespräch drehte sich danach um Trump und Pizza. Aber nicht um Psychologie.
 <br>
 <br>
-Dieses Ereignis brachte mich zum Nachdenken. Ich dachte eigentlich immer, ich studiere etwas, das mich wirklich interessiert. Bei dem ich eben nicht gleich alles wieder vergesse... Aber warum zur Hölle konnte ich dann nach drei Jahren Studium nicht zwei Minuten lang davon erzählen?
+Das brachte mich zum Nachdenken. Ich dachte eigentlich immer, ich studiere etwas, das mich wirklich interessiert. Aber warum zur Hölle konnte ich dann nach drei Jahren Studium nicht zwei Minuten lang davon erzählen?
 <br>
 <br>
-Es stimmte also, auch wenn ich es zuerst nicht wahr haben wollte: Ich bin ein ganz normaler, "Bulimie-lernender", Reinstopf-Auskotz-Student. Und habe sehr viele Dinge, die ich im Studium eigentlich als interessant empfand und behalten wollte, wieder vergessen.
+Es stimmte also. Auch, wenn ich es zuerst nicht wahr haben wollte: Ich bin ein ganz normaler, Bulimie-lernender, Reinstopf-Auskotz-Student. Und habe sehr viele Dinge, die ich im Studium eigentlich als interessant empfand und behalten wollte, wieder vergessen.
 <br>
 <br>
-<span style="color:#DA6A78">Das fand ich richtig traurig.</span> Ein wenig machte ich das Bildungssystem verantwortlich (es sollte definitiv in Erwägung gezogen werden 😉 ). Aber das brachte mir ja nichts.
+<span style="color:#DA6A78">Das fand ich richtig traurig.</span> Ein wenig machte ich das Bildungssystem verantwortlich (es sollte definitiv in Erwägung gezogen werden 😉 )&sup1;. Aber das brachte mir ja nichts.
 <br>
 <br>
 Es folgte eine kleinere Depression (nach klinischen Kriterien wohl eher eine unauffällige). Und dann der Entschluss: Ich würde in den nächsten Semesterferien jede relevante Vorlesung noch einmal durchgehen. Alles erneut nachvollziehen. Von vorne bis hinten. Und dabei jeden interessanten Fakt, jede interessante Studie herausschreiben. Für mich - und den (kleinen?) Rest, den es interessiert. 
 <br>
 <br>
-Tja, wer hätte das gedacht? Wenn Du das hier liest, dann hab ich es wohl durchgezogen. Es war schon ein wenig Arbeit. Ich hoffe, es haben ein paar Leute Freude daran.
+Tja, wer hätte das gedacht? Wenn Du das hier liest, dann hab ich es wohl durchgezogen. Ich hoffe, es haben ein paar Leute Freude daran.
 <br>
 <br>
-
+<p style="font-size:13px;margin-left:3vh; margin-right: 3vh; text-align:left">&sup1;Um hier wenigstens eine wissenschaftlich anmutende Fußnote unterzubringen: Die Kritik hier gilt den inhaltlichen Veranstaltungen des Studiums, nicht den methodischen (z.B. wissenschaftliches Arbeiten). In letzteren konnte ich viel mitnehmen - insgesamt ist das Psychologie Studium an der Uni Münster sehr empfehlenswert. </p>
 </p>
+<br>
 </section>
-<section id="anmerkungen">
+<section id="hinweise1">
 <blockquote style="margin-left:5vh; margin-right: 5vh;border-left: 5px solid #87cdbc;border-right: 5px solid #87cdbc;box-shadow: 0px 5px 5px #888888;">Anmerkungen zur App </blockquote>
 <p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left">
-
 Hier sind ein paar Hinweise und Kommentare von mir zu den Inhalten dieser App. 
 <br><br>
 Wie Du vielleicht bemerkt hast, habe ich auf <span style="color:#DA6A78">Quellenangaben</span> verzichtet. Ziemlich unwissenschaftlich. Aber: Optisch schöner und zeitlich effizienter. Und vor allem war ich mir unsicher, wie viele es überhaupt interessiert. Hier aber der ausdrückliche Hinweis: Es darf sich jeder gerne bei mir melden, der sich für Quellenangaben interessiert (Kontakt: siehe unten). Ich werde sie mit Vergnügen heraussuchen!
 <br><br>
 Zudem habe ich versucht, meine Aussagen möglichst verständlich zu formulieren. Der Nebeneffekt davon ist, dass einige Studien auf wenige Ergebnisse reduziert werden und diese oft sehr vereinfacht ausgedrückt sind. Numerische Angaben sind meist gerundet. Der alleinige Grund dafür ist das Ziel, die <span style="color:#DA6A78">Verständlichkeit</span> der Fakten für die Leser zu erhöhen.
 <br><br>
-Die Angaben in dieser App haben durchweg eine wissenschaftlich-empirische Basis. Entsprechend müssen sie interpretiert werden. Viele Aussagen sind <span style="color:#DA6A78">Durchschnittswerte</span> - sie zeigen eine allgemeine Tendenz an. Es gibt natürlich Ausnahmen.
+Die Angaben in dieser App basieren durchweg auf wissenschaftlicher Empirie. Entsprechend müssen sie interpretiert werden. Viele Aussagen sind <span style="color:#DA6A78">Durchschnittswerte</span> - sie zeigen eine allgemeine Tendenz an. Es gibt natürlich Ausnahmen.
 <br><br>
 Für <span style="color:#DA6A78">Psychologiestudiums-Interessierte</span>: Die Inhalte dieser App sind nicht repräsentativ für das Studium! Sie sind eine Sammlung von Informationen, die ich persönlich interessant finde. Sie bilden also nur einen Teil des im Studium vermittelten Wissens und der Kompetenzen ab. Wenn Ihr hierzu konkrete Fragen habt, meldet Euch (Kontakt: siehe unten).
 <br><br>
@@ -249,15 +329,17 @@ Was bleibt mir noch zu sagen? Keine Ahnung. <br> Krass, dass Ihr bis hier unten 
 </p>
 <blockquote style="margin-left:5vh; margin-right: 5vh;border-left: 5px solid #87cdbc;border-right: 5px solid #87cdbc;box-shadow: 0px 5px 5px #888888;"> Kontakt </blockquote>
 <br>
-<p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left">
-Hier bin ich erreichbar: chris@psytastic.de <br><br>
-Es gibt auch eine kleine Website: www.psytastic.de <br><br>
-<a href="https://www.facebook.com"><span style="color:#DA6A78">Und ich freue mich über ein "Like" bei Facebook!</span> <span style="color:#474747">Einfach auf den Satz klicken. Wenn Ihr möchtet.</span></a>
-<br><br>
 
-<br><br>
-</p>
+
+<section id="kontakt1">
+<p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left">
+<a id="mail" href="mailto:chris@psytastic.de" style="color:#474747; text-decoration:none"> Hier bin ich erreichbar: chris@psytastic.de <br><br> </a>
+<a id="website" href="https://www.psytastic.de" style="color:#474747; text-decoration:none">Es gibt auch eine kleine Website: www.psytastic.de <br><br></a>
+<a id="facebook" href="https://www.facebook.com" style="color:#474747; text-decoration:none"><span style="color:#DA6A78">Und ich freue mich über ein "Like" bei Facebook!</span> <span style="color:#474747"></span></a>
+<br> <br><p style="font-size:13px;margin-left:3vh; margin-right: 3vh; text-align:left">Einfach jeweils auf den Satz klicken. Wenn Ihr möchtet.</p><br></p>
 </section>
+
+
 <script src='Links/x.js'></script>
 </body>
 </html>
