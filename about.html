@@ -19,6 +19,11 @@ function onDeviceReady() {
     window.analytics.trackEvent('click', 'about');
 }
 
+function onClick () {
+  window.analytics.trackEvent('click', 'story');
+  alert('hallo');
+}
+
 </script> 
   <style>
   @font-face {
@@ -278,7 +283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <br><br>
 <center><dropdown>
   <input id="toggle1" type="checkbox">
-  <label for="toggle1" class="animate" style="font-size:17px"><a id="story" href="#story1" style="color:#f7f9ef; text-decoration:none">Die Story dahinter</a><i ></i></label>
+  <label onClick="onClick()" for="toggle1" class="animate" style="font-size:17px"><a id="story" href="#story1" style="color:#f7f9ef; text-decoration:none">Die Story dahinter</a><i ></i></label>
   <input id="toggle2" type="checkbox" >
   <label for="toggle2" class="animate" style="font-size:17px"><a id="hinweise" href="#hinweise1" style="color:#f7f9ef; text-decoration:none">Anmerkungen und <span style="color:transparent">jajaja</span>Hinweise<span style="color:transparent">jajaja</span></a><i ></i></label>
   <input id="toggle3" type="checkbox">
