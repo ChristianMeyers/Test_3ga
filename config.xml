@@ -32,7 +32,8 @@ Hiermit klappts:
   </platform>
   <platform name="android">
     <preference name="orientation" value="portrait" />
-    <preference name="SplashScreen" value="splash" />
+    <preference name="android-minSdkVersion" value="15" />
+    <!-- <preference name="SplashScreen" value="splash" /> -->
   <icon src="images/icon/72.png" density="ldpi" />
   <icon src="images/icon/96.png" density="mdpi" />
   <icon src="images/icon/144.png" density="hdpi" />
@@ -42,6 +43,8 @@ Hiermit klappts:
   <splash src="images/icon/splash1.png"/>
   <preference name="SplashMaintainAspectRatio" value="true" />
   <preference name="SplashScreenDelay" value="2500" />
+
+  
   </platform>
   
 
