@@ -3,10 +3,23 @@
 <head>
   <title>Psytastic</title>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Links/bootstrap.css">
   <!-- in app unnötig und logo aktualisieren in app unnötigin app unnötigin app unnötigin app unnötigin app unnötigin app unnötigin app unnötig-->
-  <link rel="shortcut icon" type="image/png" href="images/example2.png"/>
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript">
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+// device APIs are available
+//
+function onDeviceReady() {
+    window.analytics.startTrackerWithId('UA-96442408-1');
+    window.analytics.trackView('about');
+    window.analytics.trackEvent('click', 'about');
+}
+
+</script> 
   <style>
   @font-face {
     font-family: Fabrica;
@@ -246,7 +259,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MKXD5C4');</script>
 <!-- End Google Tag Manager -->
 </head>
-<body style="background: #f7f7ef; font-family:Fabrica">
+<body onload="onLoad()" id="about" style="background: #f7f7ef; font-family:Fabrica">
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKXD5C4"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
