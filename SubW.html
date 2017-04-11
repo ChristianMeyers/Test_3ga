@@ -15,13 +15,13 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
-    window.ga.startTrackerWithId('UA-96442408-1');
-    window.ga.trackView('business');
-    window.ga.trackEvent('bildschirm', 'business');
+    window.analytics.startTrackerWithId('UA-96442408-1');
+    window.analytics.trackView('business');
+    window.analytics.trackEvent('bildschirm', 'business');
 }
 
 function click() {
-  window.ga.trackEvent('click', 'btnBusiness');
+  window.analytics.trackEvent('click', 'btnBusiness');
   alert('resumed');
 }
 
