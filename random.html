@@ -13,13 +13,22 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('random');
     window.analytics.trackEvent('click', 'random');
 }
 
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pause');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resume');
+}
+
 function onClick1 () {
-  window.analytics.trackEvent('click', 'random');
+  window.analytics.trackEvent('click', 'random1');
   alert('hallo');
 }
 
