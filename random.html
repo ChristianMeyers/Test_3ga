@@ -167,18 +167,17 @@ function onDeviceReady() {
   bottom: -30px;
 }
 
-
+.bg {
+  background-image: url(images/Paeda2.jpg);
+  background-repeat:no-repeat; 
+  height:400px; 
+  background-size: cover;
+  max-width:600px;
+  max-height: 600px;
+}
 
 </style>
 </head>
-
-
-
-
-
-
-
-
 <body style="background: #f7f7ef; font-family:Fabrica" onload="onLoad()" id="random" >
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
@@ -186,13 +185,21 @@ function onDeviceReady() {
   <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Entwicklungspsychologie • </p>
 </section>
 
-<section  style="margin-top:7vh; margin-bottom:10vh">
-  <center><div class="el" style="left:0px" >  </div></center>
-</section>
 
-<section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
-  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+
+
+
+<center><section class="bg" style="margin-top:5vh">
+  <center><div style="padding-top:30vh; " ><span id="target"></span></div></center>
+</section></center>
+
+
+
+
+
+<section class="container" style="margin-top:20vh">
+  <a onclick="setTimeout(location.reload.bind(), 170)" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
 
@@ -210,11 +217,26 @@ $button.addEventListener('click', function() {
 </script>
 <script src='Links/x.js'></script>
 <script type="text/javascript">
-    var path = 'images/',
-    imgs = ['Paeda.jpg','Paeda2.jpg'],
-    i = Math.floor(Math.random()*imgs.length);
-  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
+var target = document.getElementById('target');
+var titles = [
+    'Richtig',
+    'Title 2',
+    'Title 3',
+    'Title 4',
+    'Title 5'
+];
+
+function newTitle () {
+    var i = (Math.random() * titles.length) | 0;
+    target.innerText = titles[i];
+}
+
+newTitle();
+
   </script>
+
+
+
 
 </body>
 </html>
