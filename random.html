@@ -18,6 +18,11 @@ function onDeviceReady() {
     window.analytics.trackEvent('click', 'random');
 }
 
+function onClick1 () {
+  window.analytics.trackEvent('click', 'random');
+  alert('hallo');
+}
+
 </script> 
   <style>
   @font-face {
@@ -168,7 +173,7 @@ function onDeviceReady() {
 }
 
 .bg {
-  background-image: url(images/Paeda2.jpg);
+  background-image: url(images/subpages/Paeda2.jpg);
   background-repeat:no-repeat; 
   height:400px; 
   background-size: cover;
@@ -182,23 +187,15 @@ function onDeviceReady() {
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
-  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Entwicklungspsychologie • </p>
+  <p class="text-center" style="color: #f7f7ef; font-size:24px; padding-top:2.3vh"> • Zufällige Fakten • </p>
 </section>
 
-
-
-
-
-<center><section class="bg" style="margin-top:5vh">
-  <center><div style="padding-top:30vh; font-color:#474747;font-size:17px;" ><span id="target"></span></div></center>
+<center><section class="bg">
+  <center><div style="padding-top:30vh; font-color:#474747;font-size:17px;text-align:left;margin-left:6px" ><span id="target"></span></div></center>
 </section></center>
 
-
-
-
-
-<section class="container" style="margin-top:20vh">
-  <a onclick="setTimeout(location.reload.bind(), 170)" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+<section class="container" style="margin-top:10vh">
+  <a onclick="setTimeout(location.reload.bind(), 170)" onClick="onClick1()" style="text-decoration: none"> <div class="button" onclick="newTitle()">
   <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
@@ -219,11 +216,11 @@ $button.addEventListener('click', function() {
 <script type="text/javascript">
 var target = document.getElementById('target');
 var titles = [
-    'Ein Albtraum für jeden Mieter und Hausbesitzer - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
-    'Ein Albtraum für jeden Mieter und Hausbesitzer - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
-    'Ein Albtraum für jeden Mieter und Hausbesitzer - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
-    'Ein Albtraum für jeden Mieter und Hausbesitzer - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
-    'Ein Albtraum für jeden Mieter und Hausbesitzer - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.'
+    'Ein Albtraum für jeden Mieter und Hausbesitzer \n - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
+    'Text2',
+    'Was ist die wahrscheinlichere Todesursache: Lungenkrebs oder Verkehrsunfall? Die meisten antworten „Verkehrsunfall“, obwohl das falsch wäre. Dies ist ein Beispiel für so genannte Verfügbarkeitsheuristiken: Dinge werden als wahrscheinlicher angenommen, wenn sie einfacher zu erinnern bzw. verfügbar sind. U.A. deshalb haben auch so viele Menschen Flugangst. Wenn mal wieder einer in den Medien breit getreten wird, ist die Erinnerung wieder verfügbar – und der Absturz wird für wahrscheinlicher gehalten.',
+    'r - man kommt nach Hause und findet die Wohnung verwüstet vor. In Deutschland gab es im letzten Jahr 152 000 Einbrüche. So schützen Sie sich vor Eindringlingen.',
+    'In einer Studie wurden College Studenten gebeten, eine langweilige Aufgabe auszuführen. Danach sollten sie diese einem Kommilitonen empfehlen und dabei lügen bzw. behaupten, die die Studie sei spannend. Sie bekamen für das Lügen entweder 1$ oder 10$. Die Probanden, die 1$ dafür bekamen, mochten das Experiment nun insgesamt mehr als die, die dafür 10$ bekamen! Dies liegt an etwa folgendem Gedankengang: Ihr eigenes Verhalten war falsch und sie wurden dafür auch noch sehr gut belohnt. Dementsprechend muss es sich um ein schlechtes Experiment handeln. Es handelt sich hier den Versuch, eine so genannte kognitive Dissonanz zu reduzieren.'
 ];
 
 function newTitle () {
@@ -234,9 +231,5 @@ function newTitle () {
 newTitle();
 
   </script>
-
-
-
-
 </body>
 </html>
