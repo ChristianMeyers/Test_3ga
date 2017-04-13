@@ -22,10 +22,10 @@ function onDeviceReady() {
 }
 
 function onPause() {
-  window.ga.trackEvent('bildschirm', 'pauseAbout');
+  window.analytics.trackEvent('bildschirm', 'pauseAbout');
 }
 function onResume() {
-  window.ga.trackEvent('bildschirm', 'resumeAbout');
+  window.analytics.trackEvent('bildschirm', 'resumeAbout');
 
 function onClick1 () {
   window.analytics.trackEvent('click', 'story');
