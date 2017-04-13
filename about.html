@@ -14,10 +14,18 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('about');
     window.analytics.trackEvent('click', 'about');
 }
+
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pauseAbout');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resumeAbout');
 
 function onClick1 () {
   window.analytics.trackEvent('click', 'story');
