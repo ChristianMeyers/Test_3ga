@@ -39,6 +39,16 @@ function onClick3 () {
   window.analytics.trackEvent('click', 'kontakt');
 }
 
+function onClick4 () {
+  window.analytics.trackEvent('click', 'mail');
+}
+
+function onClick5 () {
+  window.analytics.trackEvent('click', 'website');
+}
+
+
+
 </script> 
   <style>
   @font-face {
@@ -361,9 +371,8 @@ Was bleibt mir noch zu sagen? Keine Ahnung. <br> Krass, dass Ihr bis hier unten 
 
 <section id="kontakt1">
 <p style="font-size:15px;margin-left:3vh; margin-right: 3vh; text-align:left">
-<a id="mail" href="mailto:chris@psytastic.de" style="color:#474747; text-decoration:none"> Hier bin ich erreichbar: chris@psytastic.de <br><br> </a>
-<a id="website" href="https://www.psytastic.de" style="color:#474747; text-decoration:none">Es gibt auch eine kleine Website: www.psytastic.de <br><br></a>
-<a id="facebook" href="https://www.facebook.com" style="color:#474747; text-decoration:none"><span style="color:#DA6A78">Und ich freue mich über ein "Like" bei Facebook!</span> <span style="color:#474747"></span></a>
+<a onClick="onClick4()" href="mailto:chris@psytastic.de" style="color:#474747; text-decoration:none"> Hier bin ich erreichbar: chris@psytastic.de <br><br> </a>
+<a onClick="onClick5()" href="https://www.psytastic.de" style="color:#474747; text-decoration:none">Es gibt auch eine kleine Website: www.psytastic.de <br><br></a>
 <br> <br><p style="font-size:13px;margin-left:3vh; margin-right: 3vh; text-align:left">Einfach jeweils auf den Satz klicken. Wenn Ihr möchtet.</p><br></p>
 </section>
 
