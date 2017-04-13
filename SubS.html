@@ -13,9 +13,22 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('sozial');
     window.analytics.trackEvent('click', 'sozial');
+}
+
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pauseSozial');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resumeSozial');
+}
+
+function onClick1 () {
+  window.analytics.trackEvent('click', 'Sozial');
 }
 
 </script> 
@@ -167,7 +180,14 @@ function onDeviceReady() {
   bottom: -30px;
 }
 
-
+.bg {
+  background-image: url(images/subpages/sozial.jpg);
+  background-repeat:no-repeat; 
+  height:400px; 
+  background-size: cover;
+  max-width:600px;
+  max-height: 600px;
+}
 
 </style>
 </head>
@@ -183,19 +203,18 @@ function onDeviceReady() {
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
-  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Sozialpsychologie • </p>
+  <p class="text-center" style="color: #f7f7ef; font-size:24px; padding-top:2.3vh"> • Sozialpsychologie • </p>
 </section>
 
-<section  style="margin-top:7vh; margin-bottom:10vh">
-  <center><div class="el" style="left:0px" >  </div></center>
-</section>
+<center><section class="bg">
+  <center><div style="padding-top:4vh; padding-right:3vw; font-color:#474747;font-size:17px;text-align:left;padding-left:3vw" ><span id="target"></span></div></center>
+</section></center>
 
-<section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
-  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+<section class="container" style="margin-top:10vh">
+  <a onclick="setTimeout(location.reload.bind(), 170); onClick1()" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
-
 
 <script src='Links/button.js'></script>
 <script>
@@ -211,11 +230,47 @@ $button.addEventListener('click', function() {
 </script>
 <script src='Links/x.js'></script>
 <script type="text/javascript">
-    var path = 'images/subpages/sozial/',
-    imgs = ['Paeda.jpg','Paeda2.jpg'],
-    i = Math.floor(Math.random()*imgs.length);
-  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
-  </script>
+var target = document.getElementById('target');
+var titles = [
+    '"AUSZIEHEN" WÄRE NOCH BESSER \n \n„Gegensätze ziehen sich an“ ist psychologisch gesehen - falsch. Richtig ist: „Gleich und Gleich gesellt sich gerne“. Wir wiederholen ersteres wahrscheinlich trotzdem das nächste mal, wenn es zufällig mal wieder zu passen scheint.',
+    'DER "PERSEVERANZEFFEKT" \n \nMenschen tendieren dazu, eine einmal getroffene Meinung beizubehalten, auch wenn sie merken, dass einige ihrer Meinungsgrundlagen falsch sind. Dies wird als Perseveranzeffekt bezeichnet. Wahrscheinlich ein alltäglich am Werke in politischen Diskussionen.',
+    'KENNT MAN AUS DER SCHULE \n \nLehrer fördern Schüler, von denen sie einmal den Eindruck haben, dass sie besonders begabt seien, mehr als weniger begabte Schüler. Dies ist ein Beispiel für die sich selbst erfüllende Prophezeiung. Jetzt nicht wegen Schulerinnerungen rumheulen. Mein Tipp: Einfach am Anfang den Eindruck machen, man sei begabt. Funktioniert!',
+    'SELBSTMANIPULATION \n \nSchon das einfache Lesen von Wörtern vor bestimmten Situationen kann unser Verhalten über das so genannte Priming beeinflussen. So wurde in einer Studie gezeigt, dass ein unhöflicher Versuchsleiter 3 mal so oft von Probanden unterbrochen wurde, wenn die Probanden vorher das Wort „unhöflich“ (verglichen mit „höflich“) lasen. Dementsprechend: Wenn Ihr das nächste mal richtig aggro rüberkommen wollt, lest Synonyme für „aggressiv“. Habe noch nicht ausprobiert, ob es klappt. Also seid vorsichtig! Haha.',
+    'TRAURIG \n \nIn einem Experiment mussten Probanden möglichst schnell unterscheiden, ob sie ein Werkzeug oder eine Waffe sahen. Traurig aber wahr: Wenn die Probanden vor diesem Versuch Bilder von schwarzen Personen (verglichen mit weißen) sahen, reagierten sie schneller auf die Waffen. ',
+    'EINE FRAGE AN DICH \n \n„Linda ist 31 Jahre alt, allein stehend, eloquent und sehr klug. Sie studierte Philosophie. Als Studentin war sie sehr engagiert in Fragen sozialer Gerechtigkeit und nahm an einigen Demonstrationen teil.“ Was glauben Sie, ist Linda (a) eine Bankangestellte oder (b) eine Bankangestellte, die sich in der feministischen Bewegung engagiert? Theoretisch ist (a) wahrscheinlicher. Aber die meisten nehmen (b). So funktionieren Vorurteile.',
+    '"WAHRSCHEINLICH"? \n \nWas ist die wahrscheinlichere Todesursache: Lungenkrebs oder Verkehrsunfall? Die meisten antworten „Verkehrsunfall“, obwohl das falsch wäre. Dies ist ein Beispiel für so genannte Verfügbarkeitsheuristiken: Dinge werden als wahrscheinlicher angenommen, wenn sie einfacher zu erinnern bzw. verfügbar sind. U.A. deshalb haben auch so viele Menschen Flugangst. Wenn mal wieder einer in den Medien breit getreten wird, ist die Erinnerung wieder verfügbar – und der Absturz wird für wahrscheinlicher gehalten.',
+    'WERTVOLLES WISSEN \n \nEine Studie zeigte, dass der von Probanden geschätzte Anteil afrikanischer Staaten in der Uno (in Prozent) von folgendem abhängig ist: Wenn die Probanden vorher die von der Fragestellung unabhängige, niedrige Zahl 10 (im Vergleich zu einer hohen Zahl, 65) lasen, schätzten sie den Anteil fast doppelt so hoch ein. Dies ist ein Beispiel für den so genannten Ankereffekt. Er ist auch wirksam bei Preisverhandlungen – also nicht zu niedrig rein setzen bei Ebay-Kleinanzeigen!',
+    'RICHTIG REIZVOLL \n \nGibt es im Englischen mehr Wörter, in denen der Buchstabe „r“ an der ersten Position steht, oder Wörter, in denen der Buchstabe „r“ an der dritten Position steht? Die meisten antworten: an der ersten Position - obwohl das falsch wäre. Dies ist ein Beispiel für so genannte Verfügbarkeitsheuristiken: Dinge werden als wahrscheinlicher angenommen, wenn sie einfacher zu erinnern bzw. verfügbar sind. Wörter mit „r“ an der ersten Position sind leichter zu erinnern. Richtig reizvolle InfoRmation.',
+    'ICH WERDE EMOTIONAL \n \nEs gibt unzählige Wörter, um Emotionen zu beschreiben. Psychologisch gesehen gibt es aber nur 6 so genannte Basisemotionen, die allen Menschen angeboren sind: Freude, Aggression, Angst, Trauer, Ekel, Überraschung. In diese Moment solltest Du „Überraschung“ fühlen. Im Optimalfall.',
+    'UNSERE WAHRNEHMUNG IST TÜCKISCH \n \nGlückliche und unglückliche Paare haben eine unterschiedliche Wahrnehmung: Unglückliche Paare schreiben negatives Verhalten ihres Partners auf die Person selbst zurück, während positives Verhalten auf äußere Vorkommnisse geschoben wird. Bei glücklichen Paaren ist das andersherum. Jetzt weißt Du, wie Du herauskriegst, ob dein/e Partner/in glücklich ist. Es aber noch eine andere Möglichkeit: Fragen.',
+    'DER FUNDAMENTALE ATTRIBUTIONSFEHLER \n \nNach dem so genannten fundamentalen Attributionsfehler haben Menschen eine Tendenz, die Macht der Persönlichkeit zu überschätzen und die Macht der Situation zu unterschätzen: In einer Studie schrieben Studenten zunächst einen Text über Fidel Castro. Dabei wurde ihnen VORGEGEBEN, ob dieser pro oder contra Fidel Castro geschrieben werden solle. Daraufhin wurde dieser Text Kommilitonen vorgelegt, die darauf basierend einschätzen sollten, welche Einstellung die Verfasser der Texte zu Fidel Castro haben. Die Einschätzung basierte im hohem Maße auf den Texten. Dabei sagen diese ja nichts aus. ',
+    'ÜBER UNS WEST´LER \n \nPersonen aus westlichen Kulturen, in denen Menschen eher mit Fokus auf das Individuum erzogen werden, schreiben Erfolge eher auf sich selber zurück und Misserfolge auf äußere Vorkommnisse. Dies findet sich allerdings nicht in östlichen Kulturen, in denen mit Fokus auf die Gemeinschaft erzogen wird. Irgendwie nicht so sozial von uns – aber hat auch Vorteile.',
+    '"THIS IS AN APPLE" \n \nWenn Menschen z.B. Englisch und Deutsch sprechen, greifen sie beim Sprechen von Englisch eher auf das Wissen zurück, dass sie in der englischen Sprache erworben haben. Man stelle sich also die ersten Worte im Englischen vor: „This is an apple“. Wenn man jetzt in Englisch auf die Frage antworten soll, welches Obst am besten schmeckt, wird man zuerst an einen Apfel denken. Aha.',
+    'ÜBER WAS DENKEN WIR AM MEISTEN NACH? \n \nMenschen denke etwa 8% ihrer Zeit über sich selbst nach, etwa 4% ihrer Zeit über Essen. Am meisten, 15%, denken sie über ihre Arbeit nach. Ich empfehle, sich eine angenehme Arbeit zu suchen.',
+    'DIE MOTORSÄGEN-TÄUSCHUNG \n \nIn einer Studie sollten 2 Gruppen von Probanden einen Film bewerten, von denen die eine Gruppe Motorsägen-Lärm im Hintergrund hörte, die andere Gruppe nicht. Die Gruppen bewerteten den Film gleich. Trotzdem begründete die eine Gruppe ihre Bewertung mit dem Motorsägen-Lärm. Dies ist ein Beispiel für die oft unterschätzte Schwierigkeit der Selbstbeurteilung. ',
+    'ERREGEND \n \nMenschen möchten sich selbst verstehen, und versuchen deshalb ihre eigenen körperlichen Erregungen immer konkreten Ursachen zuzuschreiben. In einer Studie liefen Männer über eine Brücke und trafen entweder mitten auf der Brücke oder hinter der Brücke auf eine Frau. Wenn sie mitten auf der Brücke auf die Frau trafen, bewerteten sie die Frau als attraktiver. Sie schrieben die Erregung, die sie aufgrund der Höhe der Brücke verspürten, der Frau zu. Ein gutes erstes Date braucht also viel Erregung. Klingt sinnvoll. ',
+    'ÜBER GUTE SCHULNOTEN, DIE BELOHNT WERDEN \n \nWenn Verhalten, das noch nie belohnt wurde, plötzlich belohnt wird, wird das Verhalten zunächst gefördert. Zum Beispiel könnte man durch Geld die Schulnoten verbessern. Wenn nun aber die Belohnung aber nicht mehr gegeben wird, wird das Verhalten deutlich weniger gezeigt. Im Falle der guten Schulnoten heißt das: Wenn diese nun nicht mehr mit Geld belohnt werden würden, dann würden sie schlechter werden als sie vor der Belohnung waren. Dies ist ein Beispiel für den Overjustification Effect. Ich hoffe, Ihr wurdet nicht für Schulnoten belohnt.',
+    'WAS IST DAS DA IM SPIEGEL? \n \nZu erkennen, dass wir ein eigenständiger Mensch sind, hängt auch von unserem sozialen Kontakt ab. So wurde in einer Studie gezeigt, dass sozial isolierte Schimpansen sich nicht selber im Spiegel erkannten. Vielleicht waren es aber auch nur äußerst dumme Schimpansen. Obwohl, wahrscheinlich nicht.',
+    'INTELLIGENZ MANIPULATION \n \nWenn man andere vor der Einschätzung ihrer eigenen Intelligenz nebenbei an eine etwas klügere Person erinnert, wie evtl. Albert Einstein, fällt deren Einschätzung ihrer Intelligenz kleiner aus. Eine hilfreiche Information.',
+    'ES WIRD KOMPLIZIERT: \n \nIn einer Studie wurden College Studenten gebeten, eine langweilige Aufgabe auszuführen. Danach sollten sie diese einem Kommilitonen empfehlen und dabei lügen bzw. behaupten, die die Studie sei spannend. Sie bekamen für das Lügen entweder 1$ oder 10$. Die Probanden, die 1$ dafür bekamen, mochten das Experiment nun insgesamt mehr als die, die dafür 10$ bekamen! Dies liegt an etwa folgendem Gedankengang: Ihr eigenes Verhalten war falsch und sie wurden dafür auch noch sehr gut belohnt. Dementsprechend muss es sich um ein schlechtes Experiment handeln. Es handelt sich hier den Versuch, eine so genannte kognitive Dissonanz zu reduzieren.',
+    'WIRD EINSTELLUNG VERERBT? \n \nIn Studien mit eineiigen Zwillingen, die in unterschiedlichen Familien aufgewachsen sind, kam heraus, dass diese trotzdem ähnliche Einstellungen zu gesellschaftspolitischen Themen wie Todesstrafe, Abtreibung, Religion und Homosexualität haben. Genetik beeinflusst also auch die Einstellung von Menschen (bis zu 50% Prozent).',
+    'DIE REIHENFOLGE IN FRAGEBÖGEN \n \nBei der Abfrage von Einstellungen (z.B. Lebenszufriedenheit) hat die Reihenfolge (!), in der man Einstellungen abfragt, eine große Bedeutung. So war in einer Studie der Zusammenhang zwischen Zufriedenheit in der Partnerschaft und genereller Lebenszufriedenheit doppelt so hoch, wenn zuerst nach Zufriedenheit in der Partnerschaft gefragt wurde. In diesem Fall wird nämlich für die generelle Lebenszufriedenheit das vorher „aktivierte“ Wissen über die Partnerschaft als Hinweis genutzt. Also, wenn Ihr eine positive Antwort auf die Zufriedenheit Eures/r Partners/in wünscht: Redet vorher über einen guten Urlaub. ',
+    'TRAURIG \n \nIn einer Studie ordneten die Teilnehmer Adjektiven (z.B. „hateful“) zu, ob sie eher eine positive oder negative Bedeutung haben. Traurig aber wahr: Wenn weißen Probanden vor dieser Einordnung Bilder von schwarzen Personen (verglichen mit weißen) gezeigt wurde, brauchten sie länger, um positive Wörter (z.B. „wonderful“) einzuordnen. ',
+    'STIMMUNG BEEINFLUSST WAHRNEHMUNG \n \nUnsere Stimmung hat einen Einfluss darauf, wie gut wir Informationen verarbeiten. So konnten in einer Studie traurige Studenten schwache Argumente deutlich besser erkennen als glückliche Studenten. Am besten also schlecht drauf sein, wenn Du den nächsten Vertrag durchliest.',
+    'DAS WETTER UND LEBENSZUFRIEDENHEIT \n \nWenn wir nach unserer generellen Lebenszufriedenheit gefragt werden, hat das aktuelle Wetter einen deutlichen Einfluss auf unsere Antwort. Wenn wir allerdings vorher auf diese Tatsache aufmerksam gemacht werden, hat dies keinen Unterschied mehr. ',
+    'MEINUNGEN VERHÄRTEN \n \nEinstellungen (z.B. zu Abtreibung) können gezielt stabiler gemacht werden. Dafür muss man Personen, bevor man sie mit starken Gegenargumenten konfrontiert, erst schwache Argumente liefern. Also in Diskussionen lieber mit starken Argumenten anfangen.',
+    'EINEN VERSUCH IST ES WERT \n \nIn einer Studie wurde untersucht, welche Auswirkungen verschiedene Regelanweisungen auf Verhalten haben. Bei der Anweisung „Schreiben Sie unter keinen Umständen an diese Wand“ wurde mehr Grafitti an die Wand gesprüht, als bei der Anweisung „Schreiben Sie bitte nicht an diese Wand“. Dies ist ein klassisches Beispiel für Reaktanz bzw. eine Trotzreaktion. Bitte schreibt mir unter keinen Umständen eine App-Bewertung! Mh. Ob das klappt.',
+    'SOZIALER DRUCK \n \nIn einer Studie mussten 8 Personen, die alle nebeneinander saßen, die kürzeste von 4 Linien benennen. Eine der Linien war immer offensichtlich kürzer. Die ersten 6 Personen waren in das Experiment eingeweiht. Sie wählten bewusst eine längere Linie. 75% der Personen, die nun nicht eingeweiht waren, passten sich an diese Personen mindestens einmal an. Dies ist ein klassisches Beispiel von normativem sozialen Einfluss, um von anderen gemocht zu werden. (Falls Du es nicht verstanden hast – sorry. Lies nochmal.)',
+    'MODEL-MAGERSUCHT-TRENDS UND IHRE URSACHEN \n \nFüllige Körper betrachtet man in Kulturen, in denen die tägliche Mahlzeit unsicher ist, als die schönsten. Je sicherer nun das Nahrungsangebot wird, desto schlanker wird die „schöne“ Frau. Vielleicht sollte das Nahrungsangebot mal wieder etwas knapper werden, bei diesem Model-Magersucht-Trend. Naja.',
+];
 
+function newTitle () {
+    var i = (Math.random() * titles.length) | 0;
+    target.innerText = titles[i];
+}
+
+newTitle();
+
+  </script>
 </body>
 </html>

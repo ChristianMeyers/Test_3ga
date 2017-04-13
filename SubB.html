@@ -13,9 +13,22 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('biologische');
     window.analytics.trackEvent('click', 'biologische');
+}
+
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pauseBiologische');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resumeBiologische');
+}
+
+function onClick1 () {
+  window.analytics.trackEvent('click', 'Biologische');
 }
 
 </script> 
@@ -167,7 +180,14 @@ function onDeviceReady() {
   bottom: -30px;
 }
 
-
+.bg {
+  background-image: url(images/subpages/biologische.jpg);
+  background-repeat:no-repeat; 
+  height:400px; 
+  background-size: cover;
+  max-width:600px;
+  max-height: 600px;
+}
 
 </style>
 </head>
@@ -183,16 +203,17 @@ function onDeviceReady() {
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
-  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Biologische Psychologie • </p>
+  <p class="text-center" style="color: #f7f7ef; font-size:22px; padding-top:2.3vh"> • Biologische Psychologie • </p>
 </section>
 
-<section  style="margin-top:7vh; margin-bottom:10vh">
-  <center><div class="el" style="left:0px" >  </div></center>
-</section>
 
-<section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
-  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+<center><section class="bg">
+  <center><div style="padding-top:4vh; padding-right:3vw; font-color:#474747;font-size:17px;text-align:left;padding-left:3vw"><span id="target"></span></div></center>
+</section></center>
+
+<section class="container" style="margin-top:10vh">
+  <a onclick="setTimeout(location.reload.bind(), 170); onClick1()" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
 
@@ -210,11 +231,41 @@ $button.addEventListener('click', function() {
 </script>
 <script src='Links/x.js'></script>
 <script type="text/javascript">
-    var path = 'images/subpages/biologische/',
-    imgs = ['Paeda.jpg','Paeda2.jpg'],
-    i = Math.floor(Math.random()*imgs.length);
-  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
-  </script>
+var target = document.getElementById('target');
+var titles = [
+    'MENSCH - HÖHEPUNKT DER EVOLUTION? \n \nMenschen haben etwa 23.000 Gene. Und wie viele haben dann Wasserflöhe? Falsch... Sie haben etwa 31.000! Raps (diese gelbe Pflanze auf Feldern) setzt mit mehr als 100.000 noch einen drauf. Wie kann das? Die Anzahl der Gene hat nichts mit Intelligenz o.ä. zu tun. Wasserflöhe und Raps können sich aber gut verschiedenen Umweltbedingungen anpassen.',
+    'UNSER KÖRPER\n \nIn jeder einzelnen Zelle (Haut, Haar...) unseres Körpers befinden sich in der DNA die Baupläne für jedes Protein, das unser Körper braucht. Dabei ist sind die DNA Fäden eigentlich etwa 2 Meter lang – sie befinden sich aber aufgewickelt in einem Zellkern, der nur 0.005 mm groß ist!',
+    'HORMONE MIT LANGZEITWIRKUNG\n \nHormone zeigen ihre Wirkung zum Beispiel in der Pubertät: Hier sind sie verantwortlich für die Produktivität von Proteinen. Sie können aber auch anders wirken, nämlich auf die Gene im Erbgut selber. So kommt es, dass gestresste Mütter häufiger depressive Kinder haben! Die Jugend hat also recht: „Chill mal, Mutter.“',
+    'DIE RICHTIGE FÖRDERUNG\n \nZwillings und Adoptionsstudien haben gezeigt, dass unsere Leistungsfähigkeit und Persönlichkeit sowohl von Genetik als auch von Umwelteinflüssen abhängt. Interessant ist, dass die beiden aber auch interagieren können: Die „richtige“ Umwelt könnte z.B. bestimmte Gene aktivieren, die sonst nie ihre Wirkung gezeigt hätten – und erst so dazu führen, dass unser genetisches Potenzial voll ausgeschöpft wird. ',
+    'IST UNSERE PERSÖNLICHKEIT GENETISCH VORHERBESTIMMT?\n\nZumindest teilweise: Es konnte z.B. gezeigt werden, dass das Persönlichkeitsmerkmal „Ängstlichkeit“ damit zusammenhängt, wie gut unser Serotonin Transport funktioniert. Aber nicht falsch verstehen – Persönlichkeitsarbeit macht natürlich trotzdem Sinn.',
+    'GENMANIPULATION MACHTS MÖGLICH\n \nKönnte man mit der richtigen genetischen Manipulation unsere Stressreaktion verringern? Wahrscheinlich: In Experimenten mit Mäusen konnte durch einen selektiven Ausschluss bestimmter Proteine eine weniger ängstliche Maus erschaffen werden. Ethische Bedenken an einem solchen Vorhaben und dessen evolutionäre Sinnhaftigkeit ignorieren wir mal. ',
+    '„MAMA, WERDE ICH SO KREATIV WIE DU?“ \n \nWohl eher eine untypische Frage. Gleichwohl interessant. Eine korrekte Antwort wäre wohl: manchmal. Eineiige Zwillinge (100% identische Gene) sind für gewöhnlich gleich kreativ, während Geschwister (50% identische Gene) manchmal komplett unterschiedlich sind. Kreativität ist eine so genannte emergente Eigenschaft: Die Vererbung basiert nicht auf der Summe einzelner Gene, sondern auf deren Zusammenwirken. Im Durchschnitt sind so ca. 20% der Fähigkeit zur Kreativität vererbt.',
+    'WIRD HOMOSEXUALITÄT VERERBT? \n \nLaut einer Studie eher nicht. Bei Männern sind genetische Faktoren zu etwa 35%, bei Frauen zu etwa 18% mitbestimmend. Größere Einflüsse haben Umwelteinflüsse.',
+    'GENETIK IST SCHULD? \n \nWerden Krankheiten wie Schizophrenie oder eine depressive Störung vererbt? Zumindest teilweise: Studien zeigten, dass das Risiko für Verwandte ersten Grades jeweils bei etwa 10% liegt. Weniger genetischen Einfluss fand man bei der bipolaren Störung. ',
+    'WIRD KRIMINALITÄT VERERBT?  \n \nEine eindeutige Antwort hierauf lässt sich nicht geben. Fest steht, dass es einen genetischen Einfluss gibt.',
+    'WERDEN EINSTELLUNGEN UND GLAUBENSHALTUNGEN GENETISCH VERERBT? \n \nTeilweise. Interessanterweise zeigte sich, dass sich insbesondere der Hang zu Traditionalismus und Konservativismus vererbt.',
+    'NERVIG \n \nEs gibt Nerven, die ca. 1 Meter lang sind. Sie können Reize mit bis zu 432 km/h transportieren. Not bad. ',
+    'NERVIG \n \nNach der Geburt dauert es etwa 30 Jahre, bis unsere Nerven ganz und gar vollendet sind.',
+    'PHANTASTISCHE PHARMAKA UND WIE SIE WIRKEN \n \nBei psychischen Erkrankungen wird oft mit Pharmaka therapiert. Was funktioniert das eigentlich? Einfach gesagt: Sie greifen in unseren Hormonhaushalt ein. So führt z.B. ein  „selektiver Serotonin Wiederaufnahmehemmer“, (puuh, einfacher ist: SSRI) als Antidepressiva dazu, dass Serotonin nicht so schnell wieder abtransportiert wird. Das wirkt sich positiv auf die Stimmung aus.',
+    'GLÜCKSHORMON? \n \nDopamin ist vielen bekannt als das Belohnungs- und Glückshormon. Aber ist es tatsächlich der Schlüssel zum Glück? Nicht wirklich: Zwar kann ein schwerer Dopaminmangel zu Parkinson führen. Zu viel Dopamin allerdings kann ebenso zu Schizophrenie führen. Also, löscht die „Dopamin-Spritze kaufen“-Erinnerung lieber wieder aus Eurem Handy.',
+    'WIE SOLL SICH DENN DAS NORADRENALIN FÜHLEN? \n \nNicht besonders spektakulär, aber trotzdem erwähnenswert: Aller sprechen immer vom Adrenalin. Es gibt aber auch das so genannte Noradrenalin, verdammt nochmal! Im Gehirn zum Beispiel überwiegt Noradrenalin.',
+    'MEHR GLUTAMAT! \n \nDer uns aus der Nahrung bekannte, künstlich erzeugte Geschmacksverstärker Glutamat ist auch natürlicher Bestandteil unseres Körpers. Nicht nur das – er ist sogar der wichtigste erregende Botenstoff im Gehirn! Wow. Mehr davon essen! (Das war ein Scherz.)',
+    '„OMA, ICH MUSS DIR ETWAS ERZÄHLEN“ \n \nNeuronale Verbindungen sind lernfähig. Das ist der Grund, warum wir überhaupt etwas Neues lernen können (von Einradfahren bis zum Erlernen einer neuen Sprache). Übrigens sind sie auch noch bis in hohe Alter lernfähig! Erzählt das bitte Eurer Oma.',
+    'SCHWERER INTELLEKT \n \nDas Menschliche Gehirn wiegt etwa 1.3 kg. Wenn Du das hier liest... bestimmt ist Deins schwerer! Okay, vielleicht ja wirklich, aber: Ein schwereres Gehirn heißt nicht größere Intelligenz. Schadeee.',
+    'DEIN GEHIRN, ALTER \n \nDer größte Teil des Gehirns, der Kortex, lässt sich in zwei Teile unterteilen, die evolutionär unterschiedlich alt sind. Der so genannte Allokortex ist der ältere Teil. Er ist z.B. für das Riechen wichtig. Der jüngere Neokortex ist dagegen für komplexe Denkleistungen zuständig. ',
+    'NUTZLOSE GEHIRNAREALE? \n \nWenn Gebiete im Gehirn nicht gebraucht werden, kann das Gehirn sie automatisch für andere Funktionen nutzen. So sind z.B. die Gehirnareale, die für das Sehen zuständig sind, bei Geburtsblinden beim Lesen von Blindenschrift aktiv. Naja. Wollen wir mal hoffen, Deine Gehirnareale werden alle gebraucht.',
+    'MEIN DARM NERVT \n \nEs werden zurecht Bücher darüber geschrieben: Allein das Darmnervensystem hat etwa 100 Millionen Neuronen.',
+    'PERFEKTIONIST "AM ARSCH" \n \nEtwa 15% der Deutschen haben das Reizdarmsyndrom. Interessant ist, dass es Menschen mit einer hohen Ausprägung im Persönlichkeitsfaktor „Perfektionismus“ eher trifft. Meine Empfehlung: Seid mittelmäßig perfektionistisch (was auch immer das heißt).',
+    'HEFTIGES NASENSPRAY \n \nEs ist möglich mit einem bestimmten Hormon (Oxytocin), wenn man es über Nasenspray in den Körper injiziert, soziale Verhaltensweisen zu fördern. So zeigen Menschen danach mehr Blickkontakt, haben größeres Vertrauen und sind großzügiger. Gleichzeitig ist die Angst reduziert. Bei Interesse am Spray schreibt mir gerne. ;-)',
+];
 
+function newTitle () {
+    var i = (Math.random() * titles.length) | 0;
+    target.innerText = titles[i];
+}
+
+newTitle();
+
+  </script>
 </body>
 </html>

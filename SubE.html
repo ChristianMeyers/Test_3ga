@@ -13,9 +13,22 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('entwicklung');
     window.analytics.trackEvent('click', 'entwicklung');
+}
+
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pauseEntwicklung');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resumeEntwicklung');
+}
+
+function onClick1 () {
+  window.analytics.trackEvent('click', 'Entwicklung');
 }
 
 </script> 
@@ -167,6 +180,14 @@ function onDeviceReady() {
   bottom: -30px;
 }
 
+.bg {
+  background-image: url(images/subpages/entwicklung.jpg);
+  background-repeat:no-repeat; 
+  height:400px; 
+  background-size: cover;
+  max-width:600px;
+  max-height: 600px;
+}
 
 
 </style>
@@ -183,16 +204,16 @@ function onDeviceReady() {
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
-  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Entwicklungspsychologie • </p>
+  <p class="text-center" style="color: #f7f7ef; font-size:21px; padding-top:2.3vh"> • Entwicklungspsychologie • </p>
 </section>
 
-<section  style="margin-top:7vh; margin-bottom:10vh">
-  <center><div class="el" style="left:0px" >  </div></center>
-</section>
+<center><section class="bg">
+  <center><div style="padding-top:4vh; padding-right:3vw; font-color:#474747;font-size:17px;text-align:left;padding-left:3vw" ><span id="target"></span></div></center>
+</section></center>
 
-<section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
-  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+<section class="container" style="margin-top:10vh">
+  <a onclick="setTimeout(location.reload.bind(), 170); onClick1()" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
 
@@ -210,11 +231,30 @@ $button.addEventListener('click', function() {
 </script>
 <script src='Links/x.js'></script>
 <script type="text/javascript">
-    var path = 'images/subpages/entwicklung/',
-    imgs = ['Paeda.jpg','Paeda2.jpg'],
-    i = Math.floor(Math.random()*imgs.length);
-  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
-  </script>
+var target = document.getElementById('target');
+var titles = [
+    'SPIEGLEIN, SPIEGLEIN, WER IST DAS? \n \nDie Fähigkeit von Säuglingen, sich im Spiegel selbst zu erkennen, wird in westlichen Kulturen früher erlernt als in östlichen/asiatischen. Westliche Kinder werden eher als Individuum behandelt. Dies fördert die Entwicklung eines Selbstkonzepts. Östliche Kinder dagegen werden eher als Teil einer Gemeinschaft aufgezogen. Vielleicht sind wir deshalb ja auch selbstverliebter? Wer weiß.',
+    '6 LANGE JAHRE \n \nMit 8 Monaten sehen Säuglinge ähnlich scharf wie Erwachsene. Aber erst mit 6 Jahren haben sie das Niveau von Erwachsenen vollends erreicht. Vielleicht ein Grund, warum ich mir die Narbe im Gesicht mit 3 Jahren holte.',
+    'SCHWARZ UND WEISS \n \nIn den ersten zwei Lebensmonaten sehen Säuglinge nur Schwarz-Weiß. Also, der Fairness halber, bitte nur entsprechende Filme mit ihnen gucken. Wenn das mal ginge...',
+    'DISKRIMINIERUNG! \n \nSchon ab 3 Monaten werden Geschlecht und Ethnie der primären Bezugsperson von Säuglingen bevorzugt. Die erste Diskriminierung? Quasi.',
+    '3D FILME ALS SÄUGLING? \n \nErst ab dem 4. Lebensmonat beginnen Säuglinge 3-dimensional zu sehen. Da lohnt sich das Geld für die 3D-Version im Kino also noch nicht, liebe Eltern! (Okay, diese Aufforderung macht in mehrfacher Hinsicht keinen Sinn.)',
+    'SCHREIENDE SÄUGLINGE \n \nSäuglinge sind zu Beginn ihres Lebens etwas schwerhörig. Deswegen ist es ihnen vielleicht auch egal, immer so laut zu schreien. Trotzdem nicht nett.',
+    'FREUDLOS \n \nSäuglinge sind von Geburt an fähig, Ekel und Interesse bzw. Erregung zu fühlen, Freude erst ab dem 2 Lebensmonat. Was für ein freudloses Leben.',
+    'SCHULDIG! ODER? \n \nSäuglinge können ab dem 9. Lebensmonat Trauer verspüren, mit 2 Jahren Stolz und mit 3 Jahren etwa Schuld. Keine Schuld fühlen... hat Vorteile. ',
+    'FRÜH DRAN \n \nBereits im Bauch der Mutter erkennen Säuglinge die Stimme der Mutter und ihre Muttersprache.',
+    'WÖRTER LERNEN \n \nAb ca. 1.5 Jahren lernen Kinder 5 bis 10 neue Wörter am Tag. Dass Du diese App hier heruntergeladen hast, spricht ja für sich. Du hast bestimmt die 10 neuen Wörter am Tag geschafft. ',
+    'WIE VIELE WÖRTER KENNT MAN? \n \n6-Jährige kennen ca. 10.000 Wörter. Was meinst Du, wie viele kennen 18-Jährige? Die meisten schätzen vermutlich weniger: Sie kennen etwa Hundertfünfzigtausend Wörter. (Ich habe es extra nicht als Zahl geschrieben, damit man es nicht direkt sieht – und damit es nach mehr aussieht.)',
+    'JACK THE RIPPERS VATER \n \nMoralische Emotionen wie Schuldgefühle entwickeln sich bei Kindern u.a. um so besser, je weniger Macht die Eltern ausüben und je mehr rationale Erklärungen die Eltern anbieten. Das heißt also, Jack the Ripper hatte einen irrationalen, Macht ausübenden Vater. Theoretisch.',
+    'SÜSS, KLEIN UND... \n \nSchon mit 14 Monaten beginnen Säuglinge, anderen spontan und ohne Belohnung zu helfen. Süße, kleine Trottel.',
+];
 
+function newTitle () {
+    var i = (Math.random() * titles.length) | 0;
+    target.innerText = titles[i];
+}
+
+newTitle();
+
+  </script>
 </body>
 </html>

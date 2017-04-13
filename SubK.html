@@ -13,9 +13,22 @@ function onLoad() {
 // device APIs are available
 //
 function onDeviceReady() {
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
     window.analytics.startTrackerWithId('UA-96442408-1');
     window.analytics.trackView('klinische');
     window.analytics.trackEvent('click', 'klinische');
+}
+
+function onPause() {
+  window.ga.trackEvent('bildschirm', 'pauseKlinische');
+}
+function onResume() {
+  window.ga.trackEvent('bildschirm', 'resumeKlinische');
+}
+
+function onClick1 () {
+  window.analytics.trackEvent('click', 'Klinische');
 }
 
 </script> 
@@ -167,7 +180,14 @@ function onDeviceReady() {
   bottom: -30px;
 }
 
-
+.bg {
+  background-image: url(images/subpages/klinische.jpg);
+  background-repeat:no-repeat; 
+  height:400px; 
+  background-size: cover;
+  max-width:600px;
+  max-height: 600px;
+}
 
 </style>
 </head>
@@ -183,16 +203,16 @@ function onDeviceReady() {
 <section style="height:10vh; background:#474747"> <!-- Neu: Gelb: f7f7ef   Grün: 87cdbc   Grau:   474747 Blau: 304766 Rot:DA6A78  ALT: Gelb:f7f9ef Grün: 87ccbc Grau: 494949-->
   <a href="index.html" class="prev">Prev</a>
   <!-- hier evtl font size ändern in App! in 1.5em oder so hier evtl font size ändern in App! in 1.5em oder sohier evtl font size ändern in App! in -->
-  <p class="text-center" style="color: #f7f7ef; font-size:4vh; padding-top:2.3vh"> • Klinische Psychologie • </p>
+  <p class="text-center" style="color: #f7f7ef; font-size:22px; padding-top:2.3vh"> • Klinische Psychologie • </p>
 </section>
 
-<section  style="margin-top:7vh; margin-bottom:10vh">
-  <center><div class="el" style="left:0px" >  </div></center>
-</section>
+<center><section class="bg">
+  <center><div style="padding-top:4vh; padding-right:3vw; font-color:#474747;font-size:17px;text-align:left;padding-left:3vw" ><span id="target"></span></div></center>
+</section></center>
 
-<section class="container">
-  <a onclick="setTimeout(location.reload.bind(location), 570)" style="text-decoration: none"> <div class="button"  >
-  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef; "> Okay. Mehr.</p>
+<section class="container" style="margin-top:10vh">
+  <a onclick="setTimeout(location.reload.bind(), 170); onClick1()" style="text-decoration: none"> <div class="button" onclick="newTitle()">
+  <p style="font-family:Fabrica; padding-top:2vh; color:#f7f7ef"> Okay. Mehr.</p>
   </div></a> 
 </section>
 
@@ -210,11 +230,30 @@ $button.addEventListener('click', function() {
 </script>
 <script src='Links/x.js'></script>
 <script type="text/javascript">
-    var path = 'images/subpages/klinische/',
-    imgs = ['Paeda.jpg','Paeda2.jpg'],
-    i = Math.floor(Math.random()*imgs.length);
-  $('.el').append("<img src='"+path+imgs[i]+"'>").hide().fadeIn(2000);
-  </script>
+var target = document.getElementById('target');
+var titles = [
+    'FRÜHER WAR NICHT ALLES BESSER \n \nIn einer Studie von 1962 diagnostizieren 2 erfahrene Psychiater 153 neu überwiesene Patienten. Das Erschreckende: Die durchschnittliche Übereinstimmung in den Diagnosen betrug nur 54%! Inzwischen gibt es aber internationale, anerkannte Bestimmungen für alle Diagnostiker, die dieses Problem deutlich verbessert haben. Gott sei Dank.',
+    'ICH HÖRE KEINE STIMMEN \n \nIn einer Studie von 1973 ließen sich gesunde (!) Versuchspersonen in eine Psychiatrie aufnehmen und sagten bei der Aufnahme, sie hätten akustische Halluzinationen. Nach der Aufnahme verhielten sie sich völlig normal – aber Kommunikationsversuche mit den Behandlern wurden meistens ignoriert. Am Ende bekamen alle Versuchspersonen die Entlassungsdiagnose einer Schizophrenie! Die Studie war ein wichtiger Schritt, um auf die damaligen, schlechten Diagnosen aufmerksam zu machen. Schaurig.',
+    'DEPRESSIV \n \nEtwa 22% der Bevölkerung zeigen in ihrem Leben einmal depressive Syndrome.',
+    'WHOW \n \nIn einer Studie der WHO wurde 2002 erhoben, welche Krankheiten für die meisten so genannten verlorenen Lebensjahre (DALYs) von Menschen (aufgrund von Krankheiten) verantwortlich sind. An der Spitze: die Depression, mit fast 8% in Europa und fast 5% weltweit. Den Unterschied am Ende finde ich interessant.',
+    'WIE WAR DAS NOCH MIT EUROPA? HABS VERGESSEN \n \nIn einer Studie der WHO wurde 2002 erhoben, welche Krankheiten für die meisten so genannten verlorenen Lebensjahre (DALYs) von Menschen (aufgrund von Krankheiten) verantwortlich sind. Interessant ist der dritte Platz: Etwa 6% geht auf die Demenz zurück – in Europa. Weltweit geht allerdings weniger als 1% auf diese zurück!',
+    'VERLORENE LEBENSJAHRE IM VERGLEICH \n \nIn einer Studie der WHO wurde 2002 erhoben, welche Krankheiten für die meisten so genannten verlorenen Lebensjahre (DALYs) von Menschen (aufgrund von Krankheiten) verantwortlich sind. Interessant ist der fünfte Platz: Etwa 4% geht auf die Alkoholmissbrauch zurück – in Europa. Weltweit geht allerdings nur 1.5% auf diese zurück. Eine ähnliche Tendenz zeigt sich übrigens auch für andere Krankheiten, zum Beispiel Darmkrebs, Migräne und Lungenkrebs. ',
+    'HÄUFIGKEIT VON STÖRUNGEN \n \nLaut einer Studie war (theoretisch) im letzten Jahr etwa jeder dritte EU-Bürger im Alter von 18-65 Jahren von psychischen Störungen betroffen. Am häufigsten sind hierbei unterschiedliche Angststörungen (z.B. Höhenangst) mit etwa 12%. Depressive Störungen sind mit 6% auch sehr weit oben. Interessant ist auch, dass fast 50% der Betroffenen unter mehr als einer psychischen Störung leiden. (Die Studie ist von 1998, aber die Tendenz dürfte ähnlich geblieben sein.)',
+    'SCHIZOPHRENE UND ESSSTÖRUNGEN \n \nLaut einer Studie war im letzten Jahr (theoretisch) etwa jeder dritte EU-Bürger im Alter von 18-65 Jahren von psychischen Störungen betroffen. Die Schizophrenie, von der man ja öfter mal hört, wird nur in etwa 1% der Fälle diagnostiziert. Essstörungen, die ja ein großes Thema sind, in etwa 0.5% der Fälle. Insbesondere bei letzterem muss man wohl dazu sagen, dass die Dunkelziffer hier durchaus höher liegen dürfte. Die Studie ist zwar von 1998, aber die Tendenz dürfte ähnlich geblieben sein.',
+    'NICHT GUT, MÄNNERS \n \nLaut einer Studie an Deutschen im Alter von 18-65 Jahren waren im letzten Jahr (theoretisch) etwa 4.5% von einer Substanzstörung, zum Beispiel Alkoholabhängigkeit, betroffen. Interessant ist der Geschlechterunterschied: Von den Frauen sind nur 1.7% betroffen, von Männern dagegen 7.2%. Die Studie ist zwar von 1998, aber die Tendenz dürfte ähnlich geblieben sein.',
+    'MÄDELS, WAS KÖNNEN WIR TUN? \n \nLaut einer Studie an Deutschen im Alter von 18-65 Jahren waren im letzten Jahr (theoretisch) etwa 8% von einer Depression betroffen. Interessant ist der Geschlechterunterschied: Von den Männern sind nur etwa 5.5% betroffen, von Frauen dagegen 11.2%. Die Studie ist zwar von 1998, aber die Tendenz dürfte ähnlich geblieben sein.',
+    'ICH HEIRATE! \n \nMan mag über das verheiratet sein sagen, was man will, aber das hier spricht dafür: Etwa 27% von deutschen Verheirateten hatten im letzten Jahr (theoretisch) irgendeine psychische Störung, während dieser Wert bei Ledigen etwa 35% beträgt, bei geschiedenen/verwitweten/getrennten etwa 45%! Die Studie ist zwar von 1998, aber die Tendenz dürfte ähnlich geblieben sein.',
+    'LANDEIER SCHMECKEN JA AUCH BESSER \n \nIn Deutschland auf dem Land zu wohnen hat anscheinend seine Vorteile: Während in Orten unter 20.000 Einwohnern im letzten Jahr (theoretisch) etwa 28% irgendeine psychische Krankheit hatten, trifft dies auf fast 40% der Menschen aus Städten mit über 500.000 Einwohnern zu. Auch wenn die Studie von 1998 ist, dürfte die Tendenz ähnlich geblieben sein.',
+    'NEUES FUTTER FÜR KAPITALISMUS-GEGNER \n \nIn einer Studie von 1998 wurde untersucht, ob nach etwa 10 Jahren der Vereinigung von Ost- und West-Deutschland psychische Störungen unterschiedlich häufig sind. Man könnte vermuten, diese seien aufgrund der schlechteren wirtschaftlichen Situation häufiger im Osten vorzufinden. Dies ist aber nicht der Fall – tendenziell waren sie sogar häufiger im Westen!',
+];
 
+function newTitle () {
+    var i = (Math.random() * titles.length) | 0;
+    target.innerText = titles[i];
+}
+
+newTitle();
+
+  </script>
 </body>
 </html>
