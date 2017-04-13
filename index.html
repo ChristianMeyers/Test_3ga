@@ -28,6 +28,17 @@ function onResume() {
   window.ga.trackEvent('bildschirm', 'resume');
 }
 
+function onClick4 () {
+  window.analytics.trackEvent('click', 'mail');
+}
+
+function onClick5 () {
+  window.analytics.trackEvent('click', 'facebook');
+}
+
+function onClick6 () {
+  window.analytics.trackEvent('click', 'website');
+}
 
 /* für OneSignal  */
 
@@ -131,9 +142,18 @@ hr {
 
         <a id="klinische" href="SubK.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img type="image" src="images/menu/1Klinische.png" class="grow img-responsive"/></center> <p class="absolute-text3">Klinische Psychologie </p> <p class="absolute-text4">Klinische Psychologie</p> </a>
 
-        <a id="entwicklung" href="SubE.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img <img style="margin-bottom:2vh" type="image" src="images/menu/1Entwicklung.png" class="grow img-responsive"/></center> <p class="absolute-text3">Entwicklungspsychologie </p> <p class="absolute-text4">Entwicklungspsychologie</p> </a>
+        <a id="entwicklung" href="SubE.html" class="col-sm-6 col-xs-12" style="padding:5px"> <center><img <img style="margin-bottom:0vh" type="image" src="images/menu/1Entwicklung.png" class="grow img-responsive"/></center> <p class="absolute-text3">Entwicklungspsychologie </p> <p class="absolute-text4">Entwicklungspsychologie</p> </a>
         
-        <a id="about" href="about.html" class="col-xs-12" style="background-color:#87cdbc; height:20vh; text-decoration:none"><p style="font-size:3vh;color:#f7f7ef; padding-top:7.7vh" class="text-center">Über diese App </p></a>
+        <a id="about" href="about.html" class="col-xs-12" style="background-color:#87cdbc; height:32vh; text-decoration:none"><p style="font-size:4vh;color:#f7f7ef; padding-top:14vh" class="text-center">Über diese App </p></a>
+
+        <div id="about" class="col-xs-12" style="background-color:#474747">
+          <p style="font-size:3.4vh; padding-top:2vh;color:#F0F0F0" class="text-center">Kontakt</p>
+          
+          <p style="font-size:2.5vh" class="text-left"><a onClick="onClick4()" href="mailto:chris@psytastic.de" style="color:#F0F0F0; text-decoration:none"> Mail: chris@psytastic.de </a> </p>
+          <p style="font-size:2.5vh; color:#F0F0F0" class="text-left"><a onClick="onClick5()" href="https://www.facebook.com" style="color:#F0F0F0;text-decoration:none">u.U. ein "Like" bei Facebook?</a></p>
+          <p style="font-size:2.5vh" class="text-left"><a onClick="onClick6()" href="https://www.psytastic.de" style="color:#F0F0F0; text-decoration:none">Website: www.psytastic.de</a></p>
+          <p style="font-size:2vh; color:#F0F0F0; text-align:left">Einfach jeweils drauf klicken. Wenn Ihr möchtet.</p>
+        </div>
     </div>
   </section>
   
